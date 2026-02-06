@@ -19,6 +19,7 @@ const ProductCardFull = ({ product }) => {
   } = product;
 
   const [quantity, setQuantity] = useState(0);
+  const [showQuickAdd, setShowQuickAdd] = useState(false);
 
   const handleIncrease = () => setQuantity(quantity + 1);
   const handleDecrease = () => setQuantity(Math.max(0, quantity - 1));
@@ -32,12 +33,20 @@ const ProductCardFull = ({ product }) => {
     }
   };
 
+  const handleQuickAdd = () => {
+    dispatch(addToCart({ ...product, quantity: 1 }));
+  };
+
   return (
-    <div className="flex flex-col gap-5 p-4 rounded-2xl bg-white border border-transparent hover:border-gray-100 transition-all group">
+    <div
+      className="flex flex-col gap-5 p-4 rounded-2xl bg-white border border-transparent hover:border-gray-100 transition-all group relative"
+      onMouseEnter={() => setShowQuickAdd(true)}
+      onMouseLeave={() => setShowQuickAdd(false)}
+    >
       <Link to={`/products/${id}`}>
         <div className="relative aspect-3/4 rounded-xl overflow-hidden bg-beige-light/30">
           <div
-            className="absolute inset-0 bg-center bg-cover"
+            className="absolute inset-0 bg-center bg-cover transition-transform duration-500 group-hover:scale-105"
             data-alt={alt}
             style={{ backgroundImage: `url("${image}")` }}
           />
@@ -48,6 +57,18 @@ const ProductCardFull = ({ product }) => {
               </span>
             </div>
           )}
+          {/* Quick Add Button on Hover */}
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              handleQuickAdd();
+            }}
+            className={`absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm text-[#111818] py-2 rounded-lg font-bold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all ${
+              showQuickAdd ? "opacity-100 translate-y-0" : ""
+            }`}
+          >
+            Quick Add
+          </button>
         </div>
       </Link>
       <div className="flex flex-col flex-grow">
@@ -65,7 +86,7 @@ const ProductCardFull = ({ product }) => {
             onDecrease={handleDecrease}
             min={0}
             size="sm"
-            className="justify-around border border-gray-100 hover:border-gray-300 rounded-lg p-2"
+            className="justify-start"
           />
           <div className="flex flex-col gap-2">
             <div>
@@ -74,10 +95,6 @@ const ProductCardFull = ({ product }) => {
                 className="bg-charcoal text-white"
               />
             </div>
-            <button className="w-full py-2 px-4 border border-gray-200 text-gray-600 font-bold rounded-lg text-xs hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-1.5">
-              <span className="material-symbols-outlined text-base">bolt</span>
-              Quick Buy
-            </button>
           </div>
         </div>
       </div>

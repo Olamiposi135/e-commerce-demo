@@ -81,7 +81,7 @@ const ProductCard = ({ product }) => {
               className="flex-1 uppercase border border-border-light text-text-main hover:border-primary hover:text-primary transition-all"
             />
           </div>
-          <button className="flex-1 h-10 bg-primary text-text-main text-xs font-bold uppercase tracking-wider rounded-lg hover:brightness-105 transition-all flex items-center justify-center">
+          <button className="flex-1 py-2 h-10 bg-primary text-text-main text-xs font-bold uppercase tracking-wider rounded-lg hover:brightness-105 transition-all flex items-center justify-center">
             Buy Now
           </button>
         </div>
