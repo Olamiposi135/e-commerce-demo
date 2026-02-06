@@ -1,19 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import CartButton from "./CartButton";
+import QuantitySelector from "./QuantitySelector";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cart/cartSlice";
 
 const ProductCardFull = ({ product }) => {
+  const dispatch = useDispatch();
   const {
     id,
     image,
     alt,
     badge,
-
     price,
     name,
     description,
     priceClass = "text-primary",
   } = product;
+
+  const [quantity, setQuantity] = useState(0);
+
+  const handleIncrease = () => setQuantity(quantity + 1);
+  const handleDecrease = () => setQuantity(Math.max(0, quantity - 1));
+
+  const handleAddToCart = () => {
+    if (quantity > 0) {
+      dispatch(addToCart({ ...product, quantity }));
+    } else {
+      // If quantity is 0, add 1 by default
+      dispatch(addToCart({ ...product, quantity: 1 }));
+    }
+  };
 
   return (
     <div className="flex flex-col gap-5 p-4 rounded-2xl bg-white border border-transparent hover:border-gray-100 transition-all group">
@@ -42,21 +59,18 @@ const ProductCardFull = ({ product }) => {
         </div>
         <p className="text-sm text-gray-500 mb-6 line-clamp-2">{description}</p>
         <div className="mt-auto space-y-3">
-          <div className="flex items-center justify-between border border-gray-200 rounded-lg p-1.5 bg-beige-light/10">
-            <button className="w-8 h-8 flex items-center justify-center hover:bg-beige-light rounded transition-colors text-charcoal">
-              <span className="material-symbols-outlined text-sm">remove</span>
-            </button>
-            <span className="text-sm font-bold w-8 text-center text-charcoal">
-              1
-            </span>
-            <button className="w-8 h-8 flex items-center justify-center hover:bg-beige-light rounded transition-colors text-charcoal">
-              <span className="material-symbols-outlined text-sm">add</span>
-            </button>
-          </div>
+          <QuantitySelector
+            quantity={quantity}
+            onIncrease={handleIncrease}
+            onDecrease={handleDecrease}
+            min={0}
+            size="sm"
+            className="justify-around border border-gray-100 hover:border-gray-300 rounded-lg p-2"
+          />
           <div className="flex flex-col gap-2">
             <div>
               <CartButton
-                product={product}
+                product={{ ...product, quantity: quantity > 0 ? quantity : 1 }}
                 className="bg-charcoal text-white"
               />
             </div>

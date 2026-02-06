@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setSearchTerm, setSelectedCategory } from "../store/productSlice";
+import {
+  setSearchTerm,
+  setSelectedCategory,
+  selectFilteredItems,
+} from "../store/productSlice";
 import RecentlyViewed from "../components/RecentlyViewed";
 import CartButton from "../components/CartButton";
+import QuantitySelector from "../components/QuantitySelector";
 import { Link } from "react-router-dom";
+import { addToCart } from "../features/cart/cartSlice";
 
 const categories = [
   "All",
@@ -15,6 +21,20 @@ const categories = [
 ];
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(0);
+
+  const handleIncrease = () => setQuantity(quantity + 1);
+  const handleDecrease = () => setQuantity(Math.max(0, quantity - 1));
+
+  const handleAddToCart = () => {
+    if (quantity > 0) {
+      dispatch(addToCart({ ...product, quantity }));
+    } else {
+      dispatch(addToCart({ ...product, quantity: 1 }));
+    }
+  };
+
   return (
     <div className="product-card group flex flex-col gap-4 relative">
       <Link to={`/products/${product.id}`} className="block">
@@ -46,19 +66,18 @@ const ProductCard = ({ product }) => {
         </div>
       </Link>
       <div className="flex flex-col gap-3 mt-1">
-        <div className="flex items-center justify-between border border-[#dce5e5] rounded-lg h-10 px-2 bg-white">
-          <button className="p-1 hover:text-primary transition-colors flex items-center">
-            <span className="material-symbols-outlined text-lg">remove</span>
-          </button>
-          <span className="text-sm font-medium">1</span>
-          <button className="p-1 hover:text-primary transition-colors flex items-center">
-            <span className="material-symbols-outlined text-lg">add</span>
-          </button>
-        </div>
+        <QuantitySelector
+          quantity={quantity}
+          onIncrease={handleIncrease}
+          onDecrease={handleDecrease}
+          min={0}
+          size="md"
+          className="justify-around border border-border-light hover:border-primary rounded-lg p-2"
+        />
         <div className="flex flex-col xl:flex-row gap-2">
           <div>
             <CartButton
-              product={product}
+              product={{ ...product, quantity: quantity > 0 ? quantity : 1 }}
               className="flex-1 uppercase border border-border-light text-text-main hover:border-primary hover:text-primary transition-all"
             />
           </div>
@@ -156,9 +175,10 @@ const FilterSidebar = () => {
 
 const AllProducts = () => {
   const dispatch = useDispatch();
-  const { filteredItems, searchTerm, selectedCategory } = useSelector(
+  const { searchTerm, selectedCategory } = useSelector(
     (state) => state.products,
   );
+  const filteredItems = useSelector(selectFilteredItems);
   const [localSearch, setLocalSearch] = useState(searchTerm);
 
   const handleSearchChange = (e) => {

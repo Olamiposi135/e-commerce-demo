@@ -1,9 +1,10 @@
 import React from "react";
 import ProductCardFull from "./ProductCardFull";
 import { useSelector } from "react-redux";
+import { selectFilteredItems } from "../store/productSlice";
 
 const ProductGrid = () => {
-  const products = useSelector((state) => state.products.filteredItems);
+  const products = useSelector(selectFilteredItems);
 
   return (
     <section className="py-16 border-t border-gray-100">
