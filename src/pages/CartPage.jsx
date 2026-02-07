@@ -48,7 +48,7 @@ const RecommendedProduct = ({ product }) => {
 
   return (
     <div className="group">
-      <div className="relative overflow-hidden rounded-xl aspect-square bg-white border border-[#dce5e5]">
+      <div className="relative overflow-hidden rounded-xl aspect-square bg-white border border-border-light">
         <Link to={`/products/${product.id}`}>
           <div
             className="absolute inset-0 bg-center bg-cover transition-transform group-hover:scale-105"
@@ -149,7 +149,7 @@ const CartPage = () => {
         {/* Cart Items Table */}
         <div className="flex-1 order-2 xl:order-1">
           <div className="overflow-x-auto">
-            <table className="w-full border border-[#dce5e5] rounded-xl overflow-hidden">
+            <table className="w-full border border-border-light rounded-xl overflow-hidden">
               {/* Head */}
               <thead className="bg-gray-50 hidden md:table-header-group">
                 <tr>
@@ -166,7 +166,7 @@ const CartPage = () => {
               </thead>
 
               {/* Body */}
-              <tbody className="divide-y divide-[#dce5e5]">
+              <tbody className="divide-y divide-border-light">
                 {cartItems.map((item) => (
                   <tr
                     key={item.id}
@@ -217,7 +217,7 @@ const CartPage = () => {
                           Quantity:
                         </span>
 
-                        <div className="flex items-center border border-[#dce5e5] rounded-lg">
+                        <div className="flex items-center border border-border-light rounded-lg">
                           <button
                             className="px-3 py-1.5 hover:bg-gray-100 transition"
                             onClick={() =>
@@ -266,15 +266,43 @@ const CartPage = () => {
               </tbody>
             </table>
           </div>
+          {/* Recommended Section */}{" "}
+          <div className="mt-8 sm:mt-12">
+            {" "}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 sm:mb-6">
+              {" "}
+              <h2 className="text-lg sm:text-2xl font-bold text-text-main">
+                {" "}
+                You May Also Like{" "}
+              </h2>{" "}
+              <Link
+                to="/products"
+                className="text-primary font-bold hover:underline flex items-center gap-1 text-sm sm:text-base"
+              >
+                {" "}
+                View All{" "}
+                <span className="material-symbols-outlined text-sm sm:text-base">
+                  {" "}
+                  arrow_forward{" "}
+                </span>{" "}
+              </Link>{" "}
+            </div>{" "}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+              {" "}
+              {recommendedProducts.map((product) => (
+                <RecommendedProduct key={product.id} product={product} />
+              ))}{" "}
+            </div>{" "}
+          </div>
         </div>
 
         {/* Order Summary */}
         <div className="xl:w-[360px] 2xl:w-[400px] order-1 xl:order-2 flex-shrink-0">
           <div className="bg-white border border-[#f0f4f4] rounded-xl p-4 sm:p-6 sticky top-4 xl:top-24">
-            <h2 className="text-lg sm:text-xl font-bold text-text-main mb-4 sm:mb-6">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-4 sm:mb-6">
               Order Summary
             </h2>
-            <div className="space-y-2.5 sm:space-y-3 mb-4 sm:mb-6">
+            <div className="space-y-3 sm:space-y-4.5 mb-4 sm:mb-6">
               <div className="flex justify-between text-sm sm:text-base text-text-muted">
                 <span>Subtotal</span>
                 <span className="text-text-main font-medium">
@@ -288,7 +316,7 @@ const CartPage = () => {
                 </span>
               </div>
               <div className="border-t border-[#f0f4f4] pt-2.5 sm:pt-3 flex justify-between">
-                <span className="font-bold text-text-main text-base sm:text-lg">
+                <span className="font-bold text-text-main text-lg sm:text-xl">
                   Total
                 </span>
                 <span className="font-bold text-text-main text-base sm:text-lg">
@@ -302,19 +330,39 @@ const CartPage = () => {
               </span>
               Proceed to Checkout
             </button>
-            <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-text-muted px-2">
-              <span className="flex items-center gap-1">
-                <span className="material-symbols-outlined text-xs sm:text-sm">
+            {/* <!-- Trust Badges --> */}
+            <div className="mt-8 pt-6 border-t border-border-light dark:border-border-dark space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-primary">
+                  verified_user
+                </span>
+                <div>
+                  <p class="text-sm font-bold">Secure Checkout</p>
+                  <p class="text-xs text-[#638888]">
+                    SSL Encrypted Payment System
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">
                   local_shipping
                 </span>
-                Free Shipping
-              </span>
-              <span className="flex items-center gap-1">
-                <span className="material-symbols-outlined text-xs sm:text-sm">
-                  verified
+                <div>
+                  <p class="text-sm font-bold">Free Shipping</p>
+                  <p class="text-xs text-[#638888]">On all orders over $50</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">
+                  replay
                 </span>
-                Secure Checkout
-              </span>
+                <div>
+                  <p class="text-sm font-bold">30-Day Returns</p>
+                  <p class="text-xs text-[#638888]">
+                    Money back guarantee policy
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

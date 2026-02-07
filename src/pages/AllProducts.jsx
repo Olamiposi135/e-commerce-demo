@@ -110,7 +110,7 @@ const FilterSidebar = () => {
                   className="flex items-center gap-x-3 py-2 cursor-pointer group"
                 >
                   <input
-                    className="h-4 w-4 rounded border-[#dce5e5] bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0"
+                    className="h-4 w-4 rounded border-border-light bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0"
                     type="checkbox"
                   />
                   <span className="text-text-main text-sm group-hover:text-primary transition-colors">
@@ -132,7 +132,7 @@ const FilterSidebar = () => {
                     className="flex items-center gap-x-3 py-2 cursor-pointer group"
                   >
                     <input
-                      className="h-4 w-4 rounded border-[#dce5e5] bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0"
+                      className="h-4 w-4 rounded border-border-light bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0"
                       type="checkbox"
                     />
                     <span className="text-text-main text-sm group-hover:text-primary transition-colors">
@@ -225,7 +225,7 @@ const AllProducts = () => {
             <p className="text-text-muted text-sm">
               Showing {filteredItems.length} products
             </p>
-            <select className="form-select bg-white border-[#dce5e5] rounded-lg text-sm text-text-main focus:border-primary focus:ring-primary min-w-[160px]">
+            <select className="form-select bg-white border-border-light rounded-lg text-sm text-text-main focus:border-primary focus:ring-primary min-w-[160px]">
               <option>Sort by: Featured</option>
               <option>Newest Arrivals</option>
               <option>Price: Low to High</option>
@@ -250,7 +250,7 @@ const AllProducts = () => {
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                     selectedCategory === category
                       ? "bg-primary text-text-main"
-                      : "bg-white border border-[#dce5e5] text-text-muted hover:border-primary hover:text-primary"
+                      : "bg-white border border-border-light text-text-muted hover:border-primary hover:text-primary"
                   }`}
                 >
                   {category}
@@ -290,7 +290,7 @@ const AllProducts = () => {
                 {/* Pagination */}
                 <div className="flex justify-center mt-16 mb-20">
                   <div className="flex items-center gap-2">
-                    <button className="p-2 rounded-lg border border-[#dce5e5] hover:bg-primary/10 transition-colors">
+                    <button className="p-2 rounded-lg border border-border-light hover:bg-primary/10 transition-colors">
                       <span className="material-symbols-outlined">
                         chevron_left
                       </span>
@@ -308,7 +308,7 @@ const AllProducts = () => {
                     <button className="w-10 h-10 rounded-lg hover:bg-primary/10 text-sm transition-colors text-text-main">
                       8
                     </button>
-                    <button className="p-2 rounded-lg border border-[#dce5e5] hover:bg-primary/10 transition-colors text-text-main">
+                    <button className="p-2 rounded-lg border border-border-light hover:bg-primary/10 transition-colors text-text-main">
                       <span className="material-symbols-outlined">
                         chevron_right
                       </span>

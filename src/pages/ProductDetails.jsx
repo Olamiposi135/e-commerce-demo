@@ -47,7 +47,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <main className="max-w-[1440px] mx-auto px-10 py-8">
+    <main className="max-w-360 mx-auto px-10 py-8">
       {/* Back Button */}
       <div className="mb-6">
         <BackButton to="/products" label="Back to Products" variant="pill" />
@@ -79,7 +79,7 @@ const ProductDetails = () => {
         <div className="lg:col-span-7">
           <div className="flex flex-col gap-4">
             <div
-              className="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-xl shadow-sm cursor-pointer"
+              className="w-full bg-center bg-no-repeat aspect-4/5 bg-cover rounded-xl shadow-sm cursor-pointer"
               style={{ backgroundImage: `url("${product.images[mainImage]}")` }}
             />
             <div className="grid grid-cols-4 gap-4">
@@ -192,7 +192,7 @@ const ProductDetails = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <button
-                className="flex-1 border-2 border-[#112121] text-[#112121] font-bold py-4 px-6 rounded-lg hover:bg-[#112121] hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
+                className="flex-1 border-2 border-background-dark text-background-dark font-bold py-4 px-6 rounded-lg hover:bg-background-dark hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
                 onClick={() =>
                   dispatch(
                     addToCart({
@@ -340,7 +340,7 @@ const ProductDetails = () => {
                 className="group flex flex-col gap-3"
               >
                 <div
-                  className="aspect-[3/4] bg-cover rounded-xl relative overflow-hidden"
+                  className="aspect-3/4 bg-cover rounded-xl relative overflow-hidden"
                   style={{ backgroundImage: `url("${pairedProduct.image}")` }}
                 >
                   <button className="absolute bottom-3 right-3 p-2 bg-white/90 rounded-full text-text-main opacity-0 group-hover:opacity-100 transition-opacity">
@@ -361,7 +361,7 @@ const ProductDetails = () => {
             <>
               <div className="group flex flex-col gap-3">
                 <div
-                  className="aspect-[3/4] bg-cover rounded-xl relative overflow-hidden"
+                  className="aspect-3/4 bg-cover rounded-xl relative overflow-hidden"
                   style={{
                     backgroundImage:
                       'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSNIzKzkU6s49gKRjssT9s2wLz7C1hONQko18OZ-x97NlzsQEm5f0a2-ZuORGAHvH1m6t-vLjpfoUQeNXXCPDcxdAJnGqqWTCDPGkkGjKhgqzzxZDEUGoE7cxK0vlrCJ-3ugHZD6UIGUPjZIHd-ZEV-1N2IwmI1xY4U0ZBariKoqVTvy_NQSdUziZquihuXIZlfCBxP3vZ2QjLlQh8Cb0rAHJIb31Nmkc-vhinLhjcKpclGWs75CJAnEtJrsI0sVSdEedy_BcNAcUa")',
@@ -378,7 +378,7 @@ const ProductDetails = () => {
               </div>
               <div className="group flex flex-col gap-3">
                 <div
-                  className="aspect-[3/4] bg-cover rounded-xl relative overflow-hidden"
+                  className="aspect-3/4 bg-cover rounded-xl relative overflow-hidden"
                   style={{
                     backgroundImage:
                       'url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWXajin30Oo1QAwZ6AlidoVt1ZKilZJ_faH_jtJYT66ZUXJRi_AathJxvMxHAupfQKb3VhmEWDXDVqLjM6i_CQYcBXwbg7Px3Vi4XHLrYKXpnJmgnCoeRLhqAmvWrEeQbt-0ZStB_rxpW072d9w9JLnbD6RZedqjkbhXV_0_wbicNP4ou42ptYhvlE-mhXSnYVX3g1QRr-DQdmaESmUUSWVbzBJqT2Z2LNw6Tdk03ten84dIZlsJvu6o-LTe4Cqqx0f3rBs-6UcMdE")',
@@ -395,7 +395,7 @@ const ProductDetails = () => {
               </div>
               <div className="group flex flex-col gap-3">
                 <div
-                  className="aspect-[3/4] bg-cover rounded-xl relative overflow-hidden"
+                  className="aspect-3/4 bg-cover rounded-xl relative overflow-hidden"
                   style={{
                     backgroundImage:
                       'url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5HJ2Jinun0I5JGlnhOJx6rKDFh0vsw8035ZUrv_K5W_OzawQX1pgY8QuEBXBl9rIgWP3XSgD8rEej-dYEDY4Ph12hTlhc3n2rA6DLBjtQLoTZDRczd8latv9R02fbtQ0KZqYyw-nuXLWdleJfEXf6WzwWK8VprOfLjAFXZ9Us0Ik5WQ0RXtmtEDFOgkKRWHomHXF53rkD5gdmL5cp7YmqkIhATblfpw6mqzgdNasjMaUvPDHEz1s0ht1EmceLjIBfPbhBrU6yy8Ts")',
@@ -412,7 +412,7 @@ const ProductDetails = () => {
               </div>
               <div className="group flex flex-col gap-3">
                 <div
-                  className="aspect-[3/4] bg-cover rounded-xl relative overflow-hidden"
+                  className="aspect-3/4 bg-cover rounded-xl relative overflow-hidden"
                   style={{
                     backgroundImage:
                       'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDg9wzzKLV1Wafn_AhkByWP6k1Ds73SjKB2dx90FNHLTh0Oh7ei0VRFusK29ear0ph4Rt77yfaQfFXUz2pmt2l1LlPgZuqagkXTvNiR-OnTwKNeISE888Xds2aa2QmCXAhsBSNN7ooxaFpujyeH2zDhMF09JfOVsfncmCEhl0j99RQ1svqpf1NT2eQNi8jhCd8j_9_R3dH-AkcuryKoZmat1HXjTVvFCZ4m2O5P6q5_vEAZdwTeqhRIg6vz0t_W1sHJWOVsg6MUMojq")',

@@ -1,250 +1,313 @@
-
-
-
-<main class="max-w-[1280px] mx-auto px-6 py-8">
-<!-- Breadcrumbs -->
-<div class="flex flex-wrap gap-2 py-4">
-<a class="text-[#638888] text-sm font-medium leading-normal hover:text-primary" href="#">Home</a>
-<span class="text-[#638888] text-sm font-medium leading-normal">/</span>
-<span class="text-[#111818] dark:text-white text-sm font-medium leading-normal">Shopping Bag</span>
-</div>
-<!-- Page Heading -->
-<div class="flex flex-wrap justify-between items-end gap-3 pb-8">
-<div class="flex flex-col gap-1">
-<h1 class="text-[#111818] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Your Shopping Bag</h1>
-<p class="text-[#638888] text-base font-normal leading-normal">You have 3 items in your bag</p>
-</div>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-<!-- Left Column: Product List -->
-<div class="lg:col-span-2 space-y-6">
-<div class="overflow-hidden rounded-xl border border-[#dce5e5] dark:border-[#2a3a3a] bg-white dark:bg-[#112121]">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-gray-50 dark:bg-[#1a2b2b] border-b border-[#dce5e5] dark:border-[#2a3a3a]">
-<th class="px-6 py-4 text-sm font-semibold uppercase tracking-wider text-[#638888]">Product</th>
-<th class="px-6 py-4 text-sm font-semibold uppercase tracking-wider text-[#638888]">Quantity</th>
-<th class="px-6 py-4 text-sm font-semibold uppercase tracking-wider text-[#638888] text-right">Total</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-[#dce5e5] dark:divide-[#2a3a3a]">
-<!-- Item 1 -->
-<tr>
-<td class="px-6 py-6">
-<div class="flex items-center gap-4">
-<div class="size-24 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" data-alt="Hydrating Glow Serum bottle on white background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDG6GLWx25obGSrS5QD5_G4mJS1VADyUjDX0pAEezwOPzsM075R4Hq-GmtYOHb_XXC2529G6iMDY4VK5wVXvq5hBSiMMYvbWef4MwXnJPvn2CYwZYOGusAWJw6U2AU85g_p388JlHniqtE-BMJkKcfcsuRDD4UiMVyaOkYE2YRqCMznYg9inftgDW_vsmCM6KYJg7fiWDXZAi4HK6WK8feg7PD7rKbb7bnCmsH-HdvmN60Y9ybuEFLGaq7gvYUTnzMTR-iRcB_Xbw4v");'></div>
-<div class="flex flex-col">
-<span class="font-bold text-[#111818] dark:text-white text-lg">Hydrating Glow Serum</span>
-<span class="text-sm text-[#638888]">Size: 50ml</span>
-<button class="text-xs text-red-500 mt-2 font-medium flex items-center gap-1 hover:underline">
-<span class="material-symbols-outlined text-sm">delete</span> Remove
-                                            </button>
-</div>
-</div>
-</td>
-<td class="px-6 py-6">
-<div class="flex items-center border border-[#dce5e5] dark:border-[#2a3a3a] rounded-lg w-fit bg-white dark:bg-transparent">
-<button class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-[#1e2e2e] transition-colors">-</button>
-<span class="px-4 py-1 font-medium border-x border-[#dce5e5] dark:border-[#2a3a3a]">1</span>
-<button class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-[#1e2e2e] transition-colors">+</button>
-</div>
-</td>
-<td class="px-6 py-6 text-right font-bold text-[#111818] dark:text-white text-lg">
-                                    $72.00
-                                </td>
-</tr>
-<!-- Item 2 -->
-<tr>
-<td class="px-6 py-6">
-<div class="flex items-center gap-4">
-<div class="size-24 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" data-alt="Cloud Whipped Moisturizer jar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQYwNPAxhWcUNDQmQ_yrJj6QjMel-H3fFU8AEpJkHh8mHX2_5qk-xcfxhZlDZd80T1JOCYOM2Gw46KEywYQh1dtDMKN_NagRX0N1Ir4q158gSHrFhh4Esmfj59WdEzIfxUPfaRuYpHcKdjWKBxujQwJu7UkSnplMjSIuznj__-NpO-Xwr-kT1SgiJC_6YthWUMAv5rxv83sqleLeH0qf2yDuhKV-Ob1kTMInzOW30L-L0eCDi3TWkf2JK3-Zc6jCNvlUwQ_UEAcNvQ");'></div>
-<div class="flex flex-col">
-<span class="font-bold text-[#111818] dark:text-white text-lg">Cloud Whipped Moisturizer</span>
-<span class="text-sm text-[#638888]">Size: 100ml</span>
-<button class="text-xs text-red-500 mt-2 font-medium flex items-center gap-1 hover:underline">
-<span class="material-symbols-outlined text-sm">delete</span> Remove
-                                            </button>
-</div>
-</div>
-</td>
-<td class="px-6 py-6">
-<div class="flex items-center border border-[#dce5e5] dark:border-[#2a3a3a] rounded-lg w-fit bg-white dark:bg-transparent">
-<button class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-[#1e2e2e] transition-colors">-</button>
-<span class="px-4 py-1 font-medium border-x border-[#dce5e5] dark:border-[#2a3a3a]">2</span>
-<button class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-[#1e2e2e] transition-colors">+</button>
-</div>
-</td>
-<td class="px-6 py-6 text-right font-bold text-[#111818] dark:text-white text-lg">
-                                    $96.00
-                                </td>
-</tr>
-<!-- Item 3 -->
-<tr>
-<td class="px-6 py-6">
-<div class="flex items-center gap-4">
-<div class="size-24 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" data-alt="Revitalizing Eye Cream tube" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAYXpppR1sATWGe9rQDKVOAl_Z4--ehW6knFODXNFc-yni1cbLBagUT1ALCR6g7Clp3IZZMk9iQMZITai6_ta4jgSk_VnIfwBdSPnDCy0eMnuyOnzd_DHYyiYsl4eEEe0PlWjS2DH8DhFw1_qYj65b_59kGB9PFkBMMvJX4moBMoNGquSVHW1xaNpvnOQ2ENViKIkfFoHnaDt_pGHdIy8VYtGDrRCENt5r42V4GOESNaXAu1R0FXLJEetsXzVJbq70PTEu6vhc1Zzik");'></div>
-<div class="flex flex-col">
-<span class="font-bold text-[#111818] dark:text-white text-lg">Revitalizing Eye Cream</span>
-<span class="text-sm text-[#638888]">Size: 15ml</span>
-<button class="text-xs text-red-500 mt-2 font-medium flex items-center gap-1 hover:underline">
-<span class="material-symbols-outlined text-sm">delete</span> Remove
-                                            </button>
-</div>
-</div>
-</td>
-<td class="px-6 py-6">
-<div class="flex items-center border border-[#dce5e5] dark:border-[#2a3a3a] rounded-lg w-fit bg-white dark:bg-transparent">
-<button class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-[#1e2e2e] transition-colors">-</button>
-<span class="px-4 py-1 font-medium border-x border-[#dce5e5] dark:border-[#2a3a3a]">1</span>
-<button class="px-3 py-1 hover:bg-gray-100 dark:hover:bg-[#1e2e2e] transition-colors">+</button>
-</div>
-</td>
-<td class="px-6 py-6 text-right font-bold text-[#111818] dark:text-white text-lg">
-                                    $35.00
-                                </td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Shipping Estimate & Promo -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="bg-white dark:bg-[#112121] p-6 rounded-xl border border-[#dce5e5] dark:border-[#2a3a3a]">
-<h3 class="text-lg font-bold mb-4">Calculate Shipping</h3>
-<div class="space-y-4">
-<select class="form-select w-full rounded-lg border-[#dce5e5] dark:border-[#2a3a3a] bg-white dark:bg-[#1e2e2e] text-[#111818] dark:text-white h-12">
-<option>United States</option>
-<option>Canada</option>
-<option>United Kingdom</option>
-</select>
-<input class="form-input w-full rounded-lg border-[#dce5e5] dark:border-[#2a3a3a] bg-white dark:bg-[#1e2e2e] h-12" placeholder="Postal Code" type="text"/>
-<button class="w-full bg-gray-100 dark:bg-[#1e2e2e] py-3 rounded-lg font-bold hover:bg-gray-200 transition-colors">Estimate</button>
-</div>
-</div>
-<div class="bg-white dark:bg-[#112121] p-6 rounded-xl border border-[#dce5e5] dark:border-[#2a3a3a]">
-<h3 class="text-lg font-bold mb-4">Promo Code</h3>
-<div class="flex flex-col gap-4">
-<label class="flex flex-col min-w-40 flex-1">
-<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111818] dark:text-white focus:outline-0 focus:ring-0 border border-[#dce5e5] dark:border-[#2a3a3a] bg-white dark:bg-[#1e2e2e] focus:border-primary h-12 placeholder:text-[#638888] px-4 text-base font-normal leading-normal" placeholder="Enter code here" value=""/>
-</label>
-<button class="w-full bg-black text-white dark:bg-primary dark:text-black py-3 rounded-lg font-bold transition-opacity hover:opacity-90">Apply Discount</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Right Column: Order Summary (Sticky) -->
-<div class="lg:col-span-1">
-<div class="sticky top-24 space-y-6">
-<div class="bg-white dark:bg-[#112121] p-8 rounded-xl border border-[#dce5e5] dark:border-[#2a3a3a] shadow-sm">
-<h2 class="text-2xl font-bold mb-6">Order Summary</h2>
-<div class="space-y-4 text-base">
-<div class="flex justify-between text-[#638888]">
-<span>Subtotal</span>
-<span class="font-medium text-[#111818] dark:text-white">$203.00</span>
-</div>
-<div class="flex justify-between text-[#638888]">
-<span>Shipping</span>
-<span class="font-medium text-green-500 uppercase">Free</span>
-</div>
-<div class="flex justify-between text-[#638888]">
-<span>Estimated Tax</span>
-<span class="font-medium text-[#111818] dark:text-white">$12.45</span>
-</div>
-<div class="pt-4 border-t border-[#dce5e5] dark:border-[#2a3a3a] flex justify-between items-end">
-<span class="text-xl font-bold">Total</span>
-<span class="text-3xl font-black text-primary">$215.45</span>
-</div>
-</div>
-<button class="w-full bg-primary text-black py-5 rounded-lg font-black text-lg mt-8 hover:shadow-lg hover:brightness-105 transition-all uppercase tracking-wider">
-                            Proceed to Checkout
-                        </button>
-<!-- Trust Badges -->
-<div class="mt-8 pt-6 border-t border-[#dce5e5] dark:border-[#2a3a3a] space-y-4">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">verified_user</span>
-<div>
-<p class="text-sm font-bold">Secure Checkout</p>
-<p class="text-xs text-[#638888]">SSL Encrypted Payment System</p>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">local_shipping</span>
-<div>
-<p class="text-sm font-bold">Free Shipping</p>
-<p class="text-xs text-[#638888]">On all orders over $50</p>
-</div>
-</div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">replay</span>
-<div>
-<p class="text-sm font-bold">30-Day Returns</p>
-<p class="text-xs text-[#638888]">Money back guarantee policy</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Recommended Section -->
-<section class="mt-20">
-<div class="flex items-center justify-between mb-8">
-<h2 class="text-2xl font-bold">Recommended for You</h2>
-<div class="flex gap-2">
-<button class="size-10 rounded-full border border-[#dce5e5] dark:border-[#2a3a3a] flex items-center justify-center hover:bg-white dark:hover:bg-[#1e2e2e]">
-<span class="material-symbols-outlined">chevron_left</span>
-</button>
-<button class="size-10 rounded-full border border-[#dce5e5] dark:border-[#2a3a3a] flex items-center justify-center hover:bg-white dark:hover:bg-[#1e2e2e]">
-<span class="material-symbols-outlined">chevron_right</span>
-</button>
-</div>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-<!-- Recommended 1 -->
-<div class="group">
-<div class="relative overflow-hidden rounded-xl aspect-square bg-white border border-[#dce5e5] dark:border-[#2a3a3a]">
-<div class="absolute inset-0 bg-center bg-cover transition-transform group-hover:scale-105" data-alt="Vitamin C brightening cream" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBui_UAzOIiRee7m4QyYCr2PcE7CvD6IfLV2CmAHKC_rztqqvwav_NXqRIhIb1gaLHZjWIFInhW38u671Q70qjZtLq8DuvVLk9CxAY17gpayo7-jw4a3rbjuXy8GlZuqx3RVvl-EVuOpTGColIvArh4f8SwHjFVvcgJ6R72QTRWsLbVwU-d1ZRl_eEE96oZ2Wv_yAEZvZ5nmJdnZ33YdzQyxjW91UFrvBlKVlcMXbMsy9wzrmv0_2tDYV1wXo9TmxWt9Rinf44iJEBY");'></div>
-<button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm text-black py-2 rounded-lg font-bold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">Quick Add</button>
-</div>
-<div class="mt-3">
-<h4 class="font-bold text-sm">Vitamin C Brightening Mask</h4>
-<p class="text-primary font-bold">$42.00</p>
-</div>
-</div>
-<!-- Recommended 2 -->
-<div class="group">
-<div class="relative overflow-hidden rounded-xl aspect-square bg-white border border-[#dce5e5] dark:border-[#2a3a3a]">
-<div class="absolute inset-0 bg-center bg-cover transition-transform group-hover:scale-105" data-alt="Rose water facial mist" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCoQI-3MzXOG4o1mIAhZU-TyPPwZI9sXrBYVyKdWrloRUEVG5J3rTPTfqC3sMLNUB1cMfRtbVdXDIYAWi7SwWK2LF3WZ2XL8tB2RlNRam_XVYUMYkD3NfryexSLcA9SLTu_L-ital9dDWlHfRx7r9Q3BE3_0yHkifEJHfDjXaI9GJg5IRmZgZsFOD5q06vQ8ZRe1mJupIsYV-NZUqf50kfXtxWU03GLl9eowmG2TRhRIuM5l8MwEqszcYqfXmbzLsT-m-gYEqj4aNzD");'></div>
-<button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm text-black py-2 rounded-lg font-bold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">Quick Add</button>
-</div>
-<div class="mt-3">
-<h4 class="font-bold text-sm">Rosewater Balance Mist</h4>
-<p class="text-primary font-bold">$28.00</p>
-</div>
-</div>
-<!-- Recommended 3 -->
-<div class="group">
-<div class="relative overflow-hidden rounded-xl aspect-square bg-white border border-[#dce5e5] dark:border-[#2a3a3a]">
-<div class="absolute inset-0 bg-center bg-cover transition-transform group-hover:scale-105" data-alt="Soothing facial oil" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2y6vYmKlYJrj7FodumbERXnTQO9VhV32oumKnL0O_lGg6iM-wK0isNAQLyupgeqEl3ubDfOWmJQxSbkv1gLla6tuIcLfnV8_q-KFBq8HsKu7Fo0UxtHLJQ3yMaHBK5xN1IUkgmj6A0x3lLr7IKg6ijMkH2C1zHnpTCcIu59gDbXbXUezudxFHNhjQGSWEdrDk7LS-74n_pAlt5CSwyxyCRupzUZ76EqkDoPK8igudXVSwacBO8Yw44RVlaC6EGUXSwgH_yQqms1cr");'></div>
-<button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm text-black py-2 rounded-lg font-bold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">Quick Add</button>
-</div>
-<div class="mt-3">
-<h4 class="font-bold text-sm">Night Repair Facial Oil</h4>
-<p class="text-primary font-bold">$58.00</p>
-</div>
-</div>
-<!-- Recommended 4 -->
-<div class="group">
-<div class="relative overflow-hidden rounded-xl aspect-square bg-white border border-[#dce5e5] dark:border-[#2a3a3a]">
-<div class="absolute inset-0 bg-center bg-cover transition-transform group-hover:scale-105" data-alt="Exfoliating toner bottle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKEkdtFXDbSqSXRqb09bpEIhU0MtzyEhaPSl03o78YGufyFNuFTKARpIu2tehUGT-pJ9MbRnvyE-wDfA5Bw2eH1GR5aMiBNyz70dCW-a4CXd_RvZt7d0_jnCALRI4snEq-MHt6zsaY1kYW_Sm3dueYs04F5EK22FPkbNgGoJwsiCvsQw1UKQkODhTJ8Zb-kXSAj7WFh3w9ttaRK1pT0_T-BsCcQSPNcVvI5mVXpO_OSl25zSvjgnyBoSGROQSyO-C-jtGU7DnMEH9t");'></div>
-<button class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm text-black py-2 rounded-lg font-bold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">Quick Add</button>
-</div>
-<div class="mt-3">
-<h4 class="font-bold text-sm">Gentle AHA Toner</h4>
-<p class="text-primary font-bold">$34.00</p>
-</div>
-</div>
-</div>
-</section>
+<!-- Checkout Layout -->
+<main class="flex-grow max-w-[1200px] mx-auto w-full px-6 py-10">
+  <div class="flex flex-col lg:flex-row gap-12">
+    <!-- Left Column: Checkout Process -->
+    <div class="flex-1 space-y-10">
+      <!-- Progress Bar Component -->
+      <div class="flex flex-col gap-3">
+        <div class="flex gap-6 justify-between items-end">
+          <p
+            class="text-[#111818] dark:text-white text-lg font-bold leading-normal"
+          >
+            Information
+          </p>
+          <p
+            class="text-[#111818] dark:text-gray-400 text-sm font-normal leading-normal uppercase tracking-widest"
+          >
+            Step 1 of 3
+          </p>
+        </div>
+        <div
+          class="rounded-full bg-[#dce5e5] dark:bg-white/10 h-1.5 overflow-hidden"
+        >
+          <div class="h-full rounded-full bg-primary" style="width: 33%"></div>
+        </div>
+      </div>
+      <!-- Express Checkout Section -->
+      <section>
+        <h2
+          class="text-[#111818] dark:text-white text-sm font-bold uppercase tracking-wider mb-4 opacity-70"
+        >
+          Express Checkout
+        </h2>
+        <div class="flex flex-wrap gap-3">
+          <button
+            class="flex-1 min-w-[160px] h-14 flex items-center justify-center rounded-xl bg-black text-white hover:bg-gray-900 transition-all font-bold text-lg gap-2"
+          >
+            <span class="material-symbols-outlined">ios</span> Apple Pay
+          </button>
+          <button
+            class="flex-1 min-w-[160px] h-14 flex items-center justify-center rounded-xl bg-white border border-[#dce5e5] text-black hover:bg-gray-50 transition-all font-bold text-lg gap-2"
+          >
+            <span class="material-symbols-outlined">google</span> Google Pay
+          </button>
+        </div>
+        <div class="relative my-8">
+          <div class="absolute inset-0 flex items-center">
+            <div
+              class="w-full border-t border-[#dce5e5] dark:border-white/10"
+            ></div>
+          </div>
+          <div class="relative flex justify-center text-sm uppercase">
+            <span
+              class="bg-background-light dark:bg-background-dark px-4 text-[#638888]"
+              >Or checkout as guest</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- Contact Information Form -->
+      <section class="space-y-6">
+        <div class="flex justify-between items-end">
+          <h3
+            class="text-[#111818] dark:text-white text-xl font-bold leading-tight"
+          >
+            Contact Information
+          </h3>
+          <p class="text-sm">
+            Already have an account?
+            <a
+              class="text-primary font-bold underline decoration-primary/30"
+              href="#"
+              >Log in</a
+            >
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="col-span-full">
+            <label
+              class="block text-sm font-bold text-[#111818] dark:text-gray-300 mb-2"
+              >Email Address</label
+            >
+            <input
+              class="w-full h-12 px-4 rounded-lg border-[#dce5e5] dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary transition-all"
+              placeholder="email@example.com"
+              type="email"
+            />
+            <div class="mt-2 flex items-center gap-2">
+              <input
+                class="rounded text-primary focus:ring-primary"
+                id="newsletter"
+                type="checkbox"
+              />
+              <label class="text-sm text-[#638888]" for="newsletter"
+                >Email me with news and offers</label
+              >
+            </div>
+          </div>
+          <div class="col-span-full mt-4">
+            <h3
+              class="text-[#111818] dark:text-white text-xl font-bold leading-tight mb-4"
+            >
+              Shipping Address
+            </h3>
+          </div>
+          <div class="col-span-1">
+            <label
+              class="block text-sm font-bold text-[#111818] dark:text-gray-300 mb-2"
+              >First Name</label
+            >
+            <input
+              class="w-full h-12 px-4 rounded-lg border-[#dce5e5] dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary"
+              placeholder="John"
+              type="text"
+            />
+          </div>
+          <div class="col-span-1">
+            <label
+              class="block text-sm font-bold text-[#111818] dark:text-gray-300 mb-2"
+              >Last Name</label
+            >
+            <input
+              class="w-full h-12 px-4 rounded-lg border-[#dce5e5] dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary"
+              placeholder="Doe"
+              type="text"
+            />
+          </div>
+          <div class="col-span-full">
+            <label
+              class="block text-sm font-bold text-[#111818] dark:text-gray-300 mb-2"
+              >Address</label
+            >
+            <input
+              class="w-full h-12 px-4 rounded-lg border-[#dce5e5] dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary"
+              placeholder="Street name and number"
+              type="text"
+            />
+          </div>
+          <div class="col-span-full">
+            <label
+              class="block text-sm font-bold text-[#111818] dark:text-gray-300 mb-2"
+              >Apartment, suite, etc. (optional)</label
+            >
+            <input
+              class="w-full h-12 px-4 rounded-lg border-[#dce5e5] dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary"
+              placeholder="Apt 4B"
+              type="text"
+            />
+          </div>
+          <div class="col-span-1">
+            <label
+              class="block text-sm font-bold text-[#111818] dark:text-gray-300 mb-2"
+              >City</label
+            >
+            <input
+              class="w-full h-12 px-4 rounded-lg border-[#dce5e5] dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary"
+              placeholder="New York"
+              type="text"
+            />
+          </div>
+          <div class="col-span-1">
+            <label
+              class="block text-sm font-bold text-[#111818] dark:text-gray-300 mb-2"
+              >Postal Code</label
+            >
+            <input
+              class="w-full h-12 px-4 rounded-lg border-[#dce5e5] dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary"
+              placeholder="10001"
+              type="text"
+            />
+          </div>
+        </div>
+        <!-- Footer Actions -->
+        <div
+          class="pt-8 flex flex-col md:flex-row md:items-center justify-between gap-4"
+        >
+          <button
+            class="flex items-center gap-2 text-[#638888] hover:text-primary transition-colors font-medium"
+          >
+            <span class="material-symbols-outlined">chevron_left</span>
+            Return to cart
+          </button>
+          <button
+            class="bg-primary text-[#112121] px-10 h-14 rounded-xl font-extrabold text-base tracking-wide hover:shadow-lg hover:shadow-primary/20 transition-all uppercase"
+          >
+            Continue to Shipping
+          </button>
+        </div>
+      </section>
+      <!-- Subtle Footer Links -->
+      <footer
+        class="pt-12 border-t border-[#dce5e5] dark:border-white/10 flex flex-wrap gap-6 text-[12px] uppercase tracking-widest text-[#638888]"
+      >
+        <a class="hover:text-primary transition-colors" href="#"
+          >Refund Policy</a
+        >
+        <a class="hover:text-primary transition-colors" href="#"
+          >Shipping Policy</a
+        >
+        <a class="hover:text-primary transition-colors" href="#"
+          >Privacy Policy</a
+        >
+        <a class="hover:text-primary transition-colors" href="#"
+          >Terms of Service</a
+        >
+      </footer>
+    </div>
+    <!-- Right Column: Order Summary -->
+    <aside class="w-full lg:w-[400px]">
+      <div
+        class="bg-white dark:bg-white/5 border border-[#dce5e5] dark:border-white/10 rounded-2xl p-6 lg:sticky lg:top-24"
+      >
+        <h3 class="text-lg font-bold mb-6">Order Summary</h3>
+        <!-- Product List -->
+        <div class="space-y-4 mb-8">
+          <div class="flex items-center gap-4">
+            <div
+              class="relative w-16 h-16 rounded-lg bg-background-light dark:bg-background-dark overflow-hidden border border-[#dce5e5] dark:border-white/10"
+            >
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Minimalist glass serum bottle on white"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY0mvAjauziCeqgQo8kSdr6cLpxd2MFfcscHyZffQtak7rzNPjjIeDYqbaMEKRev55SvtI_teC_hanl90smSGd6PWeNHv_45LMrPnDqysCW1gOnVqCh1LEP9ORXUbpibsKfv0O5IMhCLWVuQfQs36R8TX5lZTuKSTndTTus69UgqXszEYLcFrpK0hVYD3cCrwp5v_mCjzFjmUJOvCGoTAdd0UA_ROS8WMTWoETXd9XHfCzR3P2xT6jAY5WhFNTmysx4VLiIFE-fyXQ"
+              />
+              <span
+                class="absolute -top-2 -right-2 w-5 h-5 bg-[#111818] text-white text-[10px] flex items-center justify-center rounded-full"
+                >1</span
+              >
+            </div>
+            <div class="flex-grow">
+              <p class="text-sm font-bold">Midnight Recovery Oil</p>
+              <p class="text-[12px] text-[#638888]">30ml / Anti-aging</p>
+            </div>
+            <p class="text-sm font-bold">$78.00</p>
+          </div>
+          <div class="flex items-center gap-4">
+            <div
+              class="relative w-16 h-16 rounded-lg bg-background-light dark:bg-background-dark overflow-hidden border border-[#dce5e5] dark:border-white/10"
+            >
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Elegant white cream jar minimalist style"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuARPJ73edCJrOHAfR9_yh0rGopd56V1JrngQou4NXd5TTMlu97Ll4tYycR_Qq5avA2FvuR2mrvihA1PvbqDaE6VxRk3N35ci7_OW0H3u4i1eeRk9Abay4MYyPKzpao8iv_Zvc5P6aTsAxPi88AQh32Ojclis2b9Csg5RsvRnE12qdAlfIpJZlbLrWBKsy5x1jz6MSCUOB0Jp-D8xSpNdv56PrPaHDjwYB47mYxg-vkp4uBe1MTQkUs9bXa1Gsmqct0LWYBCsWcF5zPP"
+              />
+              <span
+                class="absolute -top-2 -right-2 w-5 h-5 bg-[#111818] text-white text-[10px] flex items-center justify-center rounded-full"
+                >1</span
+              >
+            </div>
+            <div class="flex-grow">
+              <p class="text-sm font-bold">Hydra-Bright Moisturizer</p>
+              <p class="text-[12px] text-[#638888]">50ml / Intense Glow</p>
+            </div>
+            <p class="text-sm font-bold">$64.00</p>
+          </div>
+        </div>
+        <!-- Discount Code -->
+        <div class="flex gap-2 mb-8">
+          <input
+            class="flex-grow h-12 px-4 rounded-lg border-[#dce5e5] dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary text-sm"
+            placeholder="Discount code"
+            type="text"
+          />
+          <button
+            class="px-6 h-12 rounded-lg bg-[#dce5e5] dark:bg-white/10 font-bold text-sm hover:bg-[#c8d4d4] transition-all"
+          >
+            Apply
+          </button>
+        </div>
+        <!-- Price Breakdown -->
+        <div
+          class="space-y-3 pt-6 border-t border-[#dce5e5] dark:border-white/10 text-sm"
+        >
+          <div class="flex justify-between">
+            <span class="text-[#638888]">Subtotal</span>
+            <span class="font-bold">$142.00</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-[#638888]">Shipping</span>
+            <span class="text-[#638888]">Calculated at next step</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-[#638888]">Taxes</span>
+            <span class="font-bold">$12.50</span>
+          </div>
+          <div
+            class="flex justify-between text-lg pt-4 border-t border-[#dce5e5] dark:border-white/10"
+          >
+            <span class="font-bold">Total</span>
+            <div class="text-right">
+              <span class="text-[12px] text-[#638888] mr-2">USD</span>
+              <span class="font-extrabold">$154.50</span>
+            </div>
+          </div>
+        </div>
+        <!-- Trust Badges -->
+        <div class="mt-8 flex justify-center gap-6 opacity-60">
+          <div class="flex flex-col items-center gap-1">
+            <span class="material-symbols-outlined text-xl">verified_user</span>
+            <span class="text-[10px] uppercase font-bold">Secure</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="material-symbols-outlined text-xl">spa</span>
+            <span class="text-[10px] uppercase font-bold">Vegan</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="material-symbols-outlined text-xl">eco</span>
+            <span class="text-[10px] uppercase font-bold">Eco</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
 </main>
-
-</body></html>
