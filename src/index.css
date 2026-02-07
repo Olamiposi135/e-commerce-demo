@@ -49,3 +49,7 @@ body {
 button {
   @apply cursor-pointer;
 }
+
+.inputForm {
+  @apply w-full py-2 sm:py-3 px-3 sm:px-4 rounded-md shadow-md border-border-light  focus:ring-primary ring-1 ring-gray-200  focus:outline-none transition-all text-base;
+}

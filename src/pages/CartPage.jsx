@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   removeFromCart,
   updateQuantity,
@@ -79,6 +79,7 @@ const RecommendedProduct = ({ product }) => {
 
 const CartPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
 
   const subtotal = cartItems.reduce(
@@ -324,7 +325,10 @@ const CartPage = () => {
                 </span>
               </div>
             </div>
-            <button className="w-full bg-primary text-text-main font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg hover:brightness-105 transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+            <button
+              onClick={() => navigate("/checkout")}
+              className="w-full bg-primary text-text-main font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg hover:brightness-105 transition-all flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+            >
               <span className="material-symbols-outlined text-sm sm:text-base">
                 lock
               </span>
