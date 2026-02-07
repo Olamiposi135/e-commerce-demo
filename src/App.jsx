@@ -9,6 +9,7 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import WhatsAppBtn from "./components/WhatsAppBtn";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/order-success" element={<OrderSuccessPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <WhatsAppBtn />
       <Footer />
     </BrowserRouter>
   );
