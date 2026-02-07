@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../features/cart/cartSlice";
 import QuantitySelector from "../components/QuantitySelector";
@@ -8,6 +8,7 @@ import BackButton from "../components/BackButton";
 const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [mainImage, setMainImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [purchaseType, setPurchaseType] = useState("onetime"); // 'onetime' or 'subscribe'
@@ -50,7 +51,7 @@ const ProductDetails = () => {
     <main className="max-w-360 mx-auto px-10 py-8">
       {/* Back Button */}
       <div className="mb-6">
-        <BackButton to="/products" label="Back to Products" variant="pill" />
+        <BackButton label="Back" variant="pill" />
       </div>
 
       {/* Breadcrumb */}
@@ -207,7 +208,18 @@ const ProductDetails = () => {
                 </span>
                 Add to Cart
               </button>
-              <button className="flex-1 bg-primary text-text-main font-bold py-4 px-6 rounded-lg hover:brightness-105 transition-all duration-200 shadow-lg flex items-center justify-center gap-2">
+              <button
+                className="flex-1 bg-primary text-text-main font-bold py-4 px-6 rounded-lg hover:brightness-105 transition-all duration-200 shadow-lg flex items-center justify-center gap-2"
+                onClick={() => {
+                  dispatch(
+                    addToCart({
+                      ...product,
+                      quantity: quantity > 0 ? quantity : 1,
+                    }),
+                  );
+                  navigate("/cart");
+                }}
+              >
                 <span className="material-symbols-outlined">bolt</span>
                 Buy Now
               </button>
@@ -334,11 +346,7 @@ const ProductDetails = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {pairedProducts.length > 0 ? (
             pairedProducts.map((pairedProduct) => (
-              <Link
-                key={pairedProduct.id}
-                to={`/product/${pairedProduct.id}`}
-                className="group flex flex-col gap-3"
-              >
+              <div key={pairedProduct.id} className="group flex flex-col gap-3">
                 <div
                   className="aspect-3/4 bg-cover rounded-xl relative overflow-hidden"
                   style={{ backgroundImage: `url("${pairedProduct.image}")` }}
@@ -355,7 +363,7 @@ const ProductDetails = () => {
                     ${pairedProduct.price.toFixed(2)}
                   </p>
                 </div>
-              </Link>
+              </div>
             ))
           ) : (
             <>

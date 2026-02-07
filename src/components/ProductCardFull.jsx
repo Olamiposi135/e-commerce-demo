@@ -86,7 +86,7 @@ const ProductCardFull = ({ product }) => {
             onDecrease={handleDecrease}
             min={0}
             size="sm"
-            className="justify-start"
+            className="justify-around"
           />
           <div className="flex flex-col gap-2">
             <div>

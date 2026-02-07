@@ -1,11 +1,13 @@
 import React from "react";
 
+import { MdOutlineEco } from "react-icons/md";
+import { MdOutlineBiotech } from "react-icons/md";
+import { MdOutlineRecycling } from "react-icons/md";
+
 const FeatureItem = ({ icon, title, description }) => {
   return (
     <div className="flex flex-col items-center text-center gap-4">
-      <span className="material-symbols-outlined text-4xl text-primary">
-        {icon}
-      </span>
+      <span className=" text-4xl text-primary">{icon}</span>
       <h3 className="text-xl font-bold text-charcoal">{title}</h3>
       <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
     </div>
@@ -15,19 +17,19 @@ const FeatureItem = ({ icon, title, description }) => {
 const Features = () => {
   const features = [
     {
-      icon: "eco",
+      icon: <MdOutlineEco size={24} />,
       title: "100% Vegan",
       description:
         "No animal-derived ingredients ever. Ethical beauty without compromise.",
     },
     {
-      icon: "biotech",
+      icon: <MdOutlineBiotech size={24} />,
       title: "Lab Tested",
       description:
         "Each batch is third-party tested for purity and efficacy in clinical environments.",
     },
     {
-      icon: "recycling",
+      icon: <MdOutlineRecycling size={24} />,
       title: "Sustainably Made",
       description:
         "Carbon-neutral shipping and 100% recyclable glass packaging.",

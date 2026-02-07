@@ -2,13 +2,15 @@ import React from "react";
 import ProductCardFull from "./ProductCardFull";
 import { useSelector } from "react-redux";
 import { selectFilteredItems } from "../store/productSlice";
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const ProductGrid = () => {
   const products = useSelector(selectFilteredItems);
 
   return (
     <section className="py-16 border-t border-gray-100">
-      <div className="flex items-center justify-between mb-12 px-4">
+      <div className="flex items-center justify-between mb-12 px-4 gap-2">
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-charcoal">
           All Products
         </h2>
@@ -29,8 +31,8 @@ const ProductGrid = () => {
       </div>
       <div className="flex justify-center items-center gap-3">
         <button className="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-200 hover:border-primary transition-colors text-charcoal">
-          <span className="material-symbols-outlined text-sm">
-            chevron_left
+          <span className="text-lg">
+            <MdOutlineKeyboardArrowLeft />
           </span>
         </button>
         <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-charcoal font-bold">
@@ -48,8 +50,8 @@ const ProductGrid = () => {
         </button>
         <button className="px-4 h-10 flex items-center justify-center rounded-lg border border-gray-200 hover:border-primary transition-colors text-sm font-bold text-charcoal">
           Next
-          <span className="material-symbols-outlined text-sm ml-1">
-            chevron_right
+          <span className="ml-1 text-lg">
+            <MdOutlineKeyboardArrowRight />
           </span>
         </button>
       </div>

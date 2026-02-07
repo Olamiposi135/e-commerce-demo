@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setSelectedCategory } from "../store/productSlice";
+import { MdOutlineWaterDrop } from "react-icons/md";
+import { MdOutlineScience } from "react-icons/md";
+import { FaSpa } from "react-icons/fa";
+import { MdLightMode } from "react-icons/md";
 
 const CategoryCard = ({ icon, name, category }) => {
   const dispatch = useDispatch();
@@ -17,7 +21,7 @@ const CategoryCard = ({ icon, name, category }) => {
       className="group cursor-pointer flex flex-col items-center gap-4 p-8 rounded-xl bg-white border border-gray-100 hover:border-primary transition-all shadow-sm"
     >
       <div className="w-20 h-20 rounded-full bg-beige-light flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-        <span className="material-symbols-outlined text-4xl">{icon}</span>
+        {icon}
       </div>
       <h3 className="text-base font-bold text-charcoal">{name}</h3>
     </Link>
@@ -26,10 +30,22 @@ const CategoryCard = ({ icon, name, category }) => {
 
 const ShopByCategory = () => {
   const categories = [
-    { icon: "water_drop", name: "Cleansers", category: "Cleansers" },
-    { icon: "science", name: "Serums", category: "Serums" },
-    { icon: "spa", name: "Moisturizers", category: "Moisturizers" },
-    { icon: "light_mode", name: "Sun Care", category: "Sun Care" },
+    {
+      icon: <MdOutlineWaterDrop size={32} />,
+      name: "Cleansers",
+      category: "Cleansers",
+    },
+    {
+      icon: <MdOutlineScience size={32} />,
+      name: "Serums",
+      category: "Serums",
+    },
+    {
+      icon: <FaSpa size={32} />,
+      name: "Moisturizers",
+      category: "Moisturizers",
+    },
+    { icon: <MdLightMode size={32} />, name: "Sun Care", category: "Sun Care" },
   ];
 
   return (

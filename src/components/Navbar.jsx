@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import { GoSearch } from "react-icons/go";
+import { IoPersonOutline } from "react-icons/io5";
 
 const Navbar = () => {
   // cart functions
@@ -31,7 +33,7 @@ const Navbar = () => {
                 </svg>
               </div>
               <h2 className="text-xl font-extrabold tracking-tighter uppercase">
-                GLOW
+                OLB
               </h2>
             </div>
           </Link>
@@ -46,40 +48,35 @@ const Navbar = () => {
             <Link
               to="/products"
               className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
-              href="#"
             >
               All Products
             </Link>
-            <Link
-              to="/new-arrivals"
+            <a
               className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
               href="#"
             >
               New Arrivals
-            </Link>
-            <Link
-              to="/about"
+            </a>
+            <a
               className="text-sm font-semibold tracking-wide hover:text-primary transition-colors"
               href="#"
             >
               About
-            </Link>
+            </a>
           </nav>
         </div>
         <div className="flex items-center gap-6">
           <div className="hidden lg:flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg px-3 py-1.5 border border-transparent focus-within:border-primary transition-all">
-            <span className="material-symbols-outlined text-gray-500 text-sm">
-              search
-            </span>
+            <GoSearch className="text-gray-500" />
             <input
-              className="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-gray-400"
-              placeholder="Search rituals..."
+              className="bg-transparent border-none focus:outline-none focus:ring-0 text-sm w-48 p-1 placeholder:text-gray-400"
+              placeholder="Search products..."
               type="text"
             />
           </div>
           <div className="flex items-center gap-4">
             <button className="p-2 hover:bg-primary/10 rounded-full transition-colors">
-              <span className="material-symbols-outlined">person</span>
+              <IoPersonOutline size={20} className="text-gray-500" />
             </button>
             <div className="relative hover:bg-primary/10 rounded-full transition-colors ">
               <Link to="/cart">

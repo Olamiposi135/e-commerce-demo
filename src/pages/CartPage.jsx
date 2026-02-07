@@ -7,37 +7,12 @@ import {
   addToCart,
 } from "../features/cart/cartSlice";
 import { RiDeleteBinLine } from "react-icons/ri";
+import products from "../data/productContent.js";
 
-const recommendedProducts = [
-  {
-    id: 9,
-    name: "Vitamin C Brightening Mask",
-    price: 42.0,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBui_UAzOIiRee7m4QyYCr2PcE7CvD6IfLV2CmAHKC_rztqqvwav_NXqRIhIb1gaLHZjWIFInhW38u671Q70qjZtLq8DuvVLk9CxAY17gpayo7-jw4a3rbjuXy8GlZuqx3RVvl-EVuOpTGColIvArh4f8SwHjFVvcgJ6R72QTRWsLbVwU-d1ZRl_eEE96oZ2Wv_yAEZvZ5nmJdnZ33YdzQyxjW91UFrvBlKVlcMXbMsy9wzrmv0_2tDYV1wXo9TmxWt9Rinf44iJEBY",
-  },
-  {
-    id: 10,
-    name: "Rosewater Balance Mist",
-    price: 28.0,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCoQI-3MzXOG4o1mIAhZU-TyPPwZI9sXrBYVyKdWrloRUEVG5J3rTPTfqC3sMLNUB1cMfRtbVdXDIYAWi7SwWK2LF3WZ2XL8tB2RlNRam_XVYUMYkD3NfryexSLcA9SLTu_L-ital9dDWlHfRx7r9Q3BE3_0yHkifEJHfDjXaI9GJg5IRmZgZsFOD5q06vQ8ZRe1mJupIsYV-NZUqf50kfXtxWU03GLl9eowmG2TRhRIuM5l8MwEqszcYqfXmbzLsT-m-gYEqj4aNzD",
-  },
-  {
-    id: 11,
-    name: "Night Repair Facial Oil",
-    price: 58.0,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC2y6vYmKlYJrj7FodumbERXnTQO9VhV32oumKnL0O_lGg6iM-wK0isNAQLyupgeqEl3ubDfOWmJQxSbkv1gLla6tuIcLfnV8_q-KFBq8HsKu7Fo0UxtHLJQ3yMaHBK5xN1IUkgmj6A0x3lLr7IKg6ijMkH2C1zHnpTCcIu59gDbXbXUezudxFHNhjQGSWEdrDk7LS-74n_pAlt5CSwyxyCRupzUZ76EqkDoPK8igudXVSwacBO8Yw44RVlaC6EGUXSwgH_yQqms1cr",
-  },
-  {
-    id: 12,
-    name: "Gentle AHA Toner",
-    price: 34.0,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBKEkdtFXDbSqSXRqb09bpEIhU0MtzyEhaPSl03o78YGufyFNuFTKARpIu2tehUGT-pJ9MbRnvyE-wDfA5Bw2eH1GR5aMiBNyz70dCW-a4CXd_RvZt7d0_jnCALRI4snEq-MHt6zsaY1kYW_Sm3dueYs04F5EK22FPkbNgGoJwsiCvsQw1UKQkODhTJ8Zb-kXSAj7WFh3w9ttaRK1pT0_T-BsCcQSPNcVvI5mVXpO_OSl25zSvjgnyBoSGROQSyO-C-jtGU7DnMEH9t",
-  },
-];
+// Get recommended products (products 9-12) from productContent
+const getRecommendedProducts = () => {
+  return products.filter((p) => p.id >= 9 && p.id <= 12);
+};
 
 const RecommendedProduct = ({ product }) => {
   const dispatch = useDispatch();
@@ -119,7 +94,7 @@ const CartPage = () => {
             Recommended for You
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-            {recommendedProducts.map((product) => (
+            {getRecommendedProducts().map((product) => (
               <RecommendedProduct key={product.id} product={product} />
             ))}
           </div>
@@ -290,7 +265,7 @@ const CartPage = () => {
             </div>{" "}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
               {" "}
-              {recommendedProducts.map((product) => (
+              {getRecommendedProducts().map((product) => (
                 <RecommendedProduct key={product.id} product={product} />
               ))}{" "}
             </div>{" "}

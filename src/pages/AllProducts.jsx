@@ -8,8 +8,13 @@ import {
 import RecentlyViewed from "../components/RecentlyViewed";
 import CartButton from "../components/CartButton";
 import QuantitySelector from "../components/QuantitySelector";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addToCart } from "../features/cart/cartSlice";
+import { MdOutlineTune } from "react-icons/md";
+import { IoIosSearch } from "react-icons/io";
+import { IoStar } from "react-icons/io5";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 const categories = [
   "All",
@@ -22,6 +27,7 @@ const categories = [
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [quantity, setQuantity] = useState(0);
 
   const handleIncrease = () => setQuantity(quantity + 1);
@@ -51,10 +57,9 @@ const ProductCard = ({ product }) => {
           )}
         </div>
         <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-1">
-            <span className="material-symbols-outlined text-primary text-base filled">
-              star
-            </span>
+          <div className="flex items-center gap-1 mt-2">
+            <IoStar className="text-primary text-base" />
+
             <span className="text-xs font-bold text-text-main">4.9</span>
             <span className="text-xs text-text-muted">(124)</span>
           </div>
@@ -81,7 +86,18 @@ const ProductCard = ({ product }) => {
               className="flex-1 uppercase border border-border-light text-text-main hover:border-primary hover:text-primary transition-all"
             />
           </div>
-          <button className="flex-1 py-2 h-10 bg-primary text-text-main text-xs font-bold uppercase tracking-wider rounded-lg hover:brightness-105 transition-all flex items-center justify-center">
+          <button
+            className="flex-1 py-2 h-10 bg-primary text-text-main text-xs font-bold uppercase tracking-wider rounded-lg hover:brightness-105 transition-all flex items-center justify-center"
+            onClick={() => {
+              dispatch(
+                addToCart({
+                  ...product,
+                  quantity: quantity > 0 ? quantity : 1,
+                }),
+              );
+              navigate("/cart");
+            }}
+          >
             Buy Now
           </button>
         </div>
@@ -92,11 +108,11 @@ const ProductCard = ({ product }) => {
 
 const FilterSidebar = () => {
   return (
-    <aside className="w-64 flex-shrink-0 hidden lg:block">
+    <aside className="w-64 shrink-0 hidden lg:block">
       <div className="sticky top-24 flex flex-col gap-8">
         <div>
           <h3 className="text-text-main text-sm font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span className="material-symbols-outlined text-lg">tune</span>
+            <MdOutlineTune className="text-lg" />
             Filters
           </h3>
           <div className="mb-6">
@@ -186,7 +202,15 @@ const AllProducts = () => {
   };
 
   const handleSearchSubmit = () => {
-    dispatch(setSearchTerm(localSearch));
+    if (localSearch.trim() !== searchTerm.trim()) {
+      dispatch(setSearchTerm(localSearch));
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearchSubmit();
+    }
   };
 
   const handleCategoryChange = (category) => {
@@ -195,7 +219,7 @@ const AllProducts = () => {
 
   return (
     <>
-      <main className="flex-1 flex flex-col mx-auto w-full max-w-[1440px] px-10 py-6">
+      <main className="flex-1 flex flex-col mx-auto w-full max-w-360 px-10 py-6">
         {/* Breadcrumb */}
         <div className="flex flex-wrap gap-2 py-4">
           <a
@@ -225,7 +249,7 @@ const AllProducts = () => {
             <p className="text-text-muted text-sm">
               Showing {filteredItems.length} products
             </p>
-            <select className="form-select bg-white border-border-light rounded-lg text-sm text-text-main focus:border-primary focus:ring-primary min-w-[160px]">
+            <select className="form-select bg-white border-border-light rounded-lg text-sm text-text-main focus:border-primary focus:ring-primary min-w-40">
               <option>Sort by: Featured</option>
               <option>Newest Arrivals</option>
               <option>Price: Low to High</option>
@@ -261,18 +285,17 @@ const AllProducts = () => {
             {/* Search */}
             <div className="mb-8">
               <label className="flex flex-col min-w-40 h-10 max-w-64">
-                <div className="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden">
+                <div className="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden focus-within:ring-1 focus-within:ring-primary">
                   <div className="text-text-muted flex bg-[#f0f4f4] items-center justify-center pl-4">
-                    <span className="material-symbols-outlined text-xl">
-                      search
-                    </span>
+                    <IoIosSearch className="text-xl" />
                   </div>
                   <input
-                    className="form-input flex w-full min-w-0 flex-1 border-none bg-[#f0f4f4] focus:ring-0 text-text-main placeholder:text-text-muted px-4 pl-2 text-sm font-normal"
+                    className="form-input flex w-full min-w-0 flex-1 border-none bg-[#f0f4f4] focus:ring-0 focus:outline-none text-text-main placeholder:text-text-muted px-4 pl-2 text-sm font-normal"
                     placeholder="Search products..."
                     value={localSearch}
                     onChange={handleSearchChange}
                     onBlur={handleSearchSubmit}
+                    onKeyDown={handleKeyDown}
                   />
                 </div>
               </label>
@@ -291,9 +314,7 @@ const AllProducts = () => {
                 <div className="flex justify-center mt-16 mb-20">
                   <div className="flex items-center gap-2">
                     <button className="p-2 rounded-lg border border-border-light hover:bg-primary/10 transition-colors">
-                      <span className="material-symbols-outlined">
-                        chevron_left
-                      </span>
+                      <IoIosArrowBack className="text-xl md:text-2xl " />
                     </button>
                     <button className="w-10 h-10 rounded-lg bg-primary text-text-main font-bold text-sm">
                       1
@@ -309,9 +330,7 @@ const AllProducts = () => {
                       8
                     </button>
                     <button className="p-2 rounded-lg border border-border-light hover:bg-primary/10 transition-colors text-text-main">
-                      <span className="material-symbols-outlined">
-                        chevron_right
-                      </span>
+                      <IoIosArrowForward className="text-xl md:text-2xl" />
                     </button>
                   </div>
                 </div>

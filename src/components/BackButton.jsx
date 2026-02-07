@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const BackButton = ({
-  to = "/products",
+  to,
   label = "Back",
   showIcon = true,
   className = "",
@@ -11,10 +11,13 @@ const BackButton = ({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    if (to) {
+    //if browser has history, go back. Otherwise, navigate to the provided 'to' path or home
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else if (to) {
       navigate(to);
     } else {
-      navigate(-1);
+      navigate("/"); // Navigate to home if no 'to' prop is provided
     }
   };
 

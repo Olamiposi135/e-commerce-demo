@@ -1,9 +1,17 @@
 import React from "react";
+import { SlSocialReddit } from "react-icons/sl";
+
+import { RiCameraLensFill } from "react-icons/ri";
+
+import { IoShareSocialOutline } from "react-icons/io5";
 
 const Footer = () => {
+  //current year function
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-white border-t border-solid border-t-[#f0f4f4] py-12 px-10">
-      <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="max-w-360 mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2 text-primary">
             <div className="size-8 text-primary">
@@ -18,7 +26,7 @@ const Footer = () => {
                 ></path>
               </svg>
             </div>
-            <h2 className="text-text-main text-lg font-bold">GLOW</h2>
+            <h2 className="text-text-main text-lg font-bold">OLB</h2>
           </div>
           <p className="text-text-muted text-sm leading-relaxed">
             Advanced skincare science meets botanical purity. Cruelty-free,
@@ -82,7 +90,7 @@ const Footer = () => {
           </p>
           <div className="flex gap-2">
             <input
-              className="form-input flex-1 bg-[#f0f4f4] border-none rounded-lg text-sm focus:ring-primary"
+              className="form-input flex-1 bg-[#f0f4f4] border-none rounded-lg text-sm ring ring-gray-100 focus:ring-primary focus:outline-none px-4 py-2 text-text-main"
               placeholder="Email"
               type="email"
             />
@@ -92,20 +100,14 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-[1440px] mx-auto mt-12 pt-8 border-t border-solid border-t-[#f0f4f4] flex flex-wrap justify-between items-center gap-4">
+      <div className="max-w-360 mx-auto mt-12 pt-8 border-t border-solid border-t-[#f0f4f4] flex flex-wrap justify-between items-center gap-4">
         <p className="text-text-muted text-xs">
-          © 2024 Lumina Skin. All rights reserved.
+          © {currentYear} Lumina Skin. All rights reserved.
         </p>
         <div className="flex gap-6">
-          <span className="material-symbols-outlined text-text-muted cursor-pointer hover:text-primary">
-            social_leaderboard
-          </span>
-          <span className="material-symbols-outlined text-text-muted cursor-pointer hover:text-primary">
-            camera
-          </span>
-          <span className="material-symbols-outlined text-text-muted cursor-pointer hover:text-primary">
-            share
-          </span>
+          <SlSocialReddit className="text-text-muted text-xl md:text-2xl cursor-pointer hover:text-primary" />
+          <RiCameraLensFill className="text-text-muted text-xl md:text-2xl  cursor-pointer hover:text-primary " />
+          <IoShareSocialOutline className="text-text-muted text-xl md:text-2xl  cursor-pointer hover:text-primary " />
         </div>
       </div>
     </footer>

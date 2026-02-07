@@ -1,4 +1,7 @@
 import React from "react";
+import { MdOutlineUnfoldMoreDouble } from "react-icons/md";
+import { IoIosStarOutline } from "react-icons/io";
+import { MdOpenInNew } from "react-icons/md";
 
 const BeforeAfter = () => {
   return (
@@ -7,7 +10,7 @@ const BeforeAfter = () => {
         <div className="relative rounded-2xl overflow-hidden shadow-2xl group border-4 border-white">
           <div className="grid grid-cols-2">
             <div
-              className="h-[400px] bg-center bg-cover grayscale"
+              className="h-100 bg-center bg-cover grayscale"
               data-alt="Before image of skin with texture issues"
               style={{
                 backgroundImage:
@@ -19,7 +22,7 @@ const BeforeAfter = () => {
               </div>
             </div>
             <div
-              className="h-[400px] bg-center bg-cover"
+              className="h-100 bg-center bg-cover"
               data-alt="After image of clear glowing skin"
               style={{
                 backgroundImage:
@@ -33,20 +36,18 @@ const BeforeAfter = () => {
           </div>
           <div className="absolute inset-y-0 left-1/2 w-0.5 bg-white cursor-ew-resize">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
-              <span className="material-symbols-outlined text-gray-400 text-sm">
-                unfold_more_double
-              </span>
+              <MdOutlineUnfoldMoreDouble className="text-gray-400 text-sm" />
             </div>
           </div>
         </div>
       </div>
       <div className="w-full lg:w-1/2 space-y-8">
         <div className="flex gap-1 text-primary">
-          <span className="material-symbols-outlined">star</span>
-          <span className="material-symbols-outlined">star</span>
-          <span className="material-symbols-outlined">star</span>
-          <span className="material-symbols-outlined">star</span>
-          <span className="material-symbols-outlined">star</span>
+          <IoIosStarOutline className="text-xl" />
+          <IoIosStarOutline className="text-xl" />
+          <IoIosStarOutline className="text-xl" />
+          <IoIosStarOutline className="text-xl" />
+          <IoIosStarOutline className="text-xl" />
         </div>
         <h2 className="text-3xl font-black leading-tight italic text-charcoal">
           "The only products that have actually fixed my skin barrier. The glow
@@ -65,7 +66,7 @@ const BeforeAfter = () => {
         </div>
         <button className="text-charcoal font-bold flex items-center gap-2 border-b-2 border-primary py-1">
           See More Real Results
-          <span className="material-symbols-outlined text-sm">open_in_new</span>
+          <MdOpenInNew className="text-lg" />
         </button>
       </div>
     </section>

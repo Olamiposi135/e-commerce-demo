@@ -44,6 +44,17 @@ const CheckoutPage = () => {
     sessionStorage.setItem("orderCity", formData.city);
     sessionStorage.setItem("orderPostalCode", formData.postalCode);
 
+    // Save subtotal to sessionStorage before clearing cart
+    const subtotal = cartItems.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0,
+    );
+    sessionStorage.setItem("orderSubtotal", subtotal.toString());
+
+    // Clear cart directly here
+    dispatch(clearCart());
+    localStorage.setItem("cart", JSON.stringify({ items: [] }));
+
     // Build URL with query params as backup
     const params = new URLSearchParams({
       email: formData.email,

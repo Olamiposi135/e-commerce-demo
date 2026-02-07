@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { IoArrowForwardOutline } from "react-icons/io5";
 
 const Hero = () => {
   return (
@@ -7,7 +9,7 @@ const Hero = () => {
         <div className="w-full lg:w-1/2 relative">
           <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
           <div
-            className="relative aspect-[4/5] w-full bg-center bg-cover rounded-xl shadow-2xl overflow-hidden"
+            className="relative aspect-4/5 w-full bg-center bg-cover rounded-xl shadow-2xl overflow-hidden"
             data-alt="Elegant woman with glowing healthy skin in warm lighting"
             style={{
               backgroundImage:
@@ -30,10 +32,12 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-primary hover:brightness-105 text-charcoal font-bold py-4 px-10 rounded-lg transition-all shadow-lg shadow-primary/20 flex items-center gap-2">
-              Shop the Collection
-              <span className="material-symbols-outlined">arrow_forward</span>
-            </button>
+            <Link to="/products" className="w-full sm:w-auto">
+              <button className="bg-primary hover:brightness-105 text-charcoal font-bold py-4 px-10 rounded-lg transition-all shadow-lg shadow-primary/20 flex items-center gap-2">
+                Shop the Collection
+                <IoArrowForwardOutline size={20} />
+              </button>
+            </Link>
             <button className="bg-white border border-gray-200 hover:border-primary py-4 px-10 rounded-lg font-bold transition-all text-charcoal">
               Take Skin Quiz
             </button>
