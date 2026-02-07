@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { clearCart } from "../features/cart/cartSlice";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
+
+  const [formData, setFormData] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+    address: "",
+    apartment: "",
+    city: "",
+    postalCode: "",
+  });
 
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -14,10 +25,38 @@ const CheckoutPage = () => {
   const taxes = subtotal * 0.08; // 8% tax estimate
   const total = subtotal + taxes;
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const handleContinueToShipping = (e) => {
     e.preventDefault();
-    // Navigate to next step (would be shipping page in real app)
-    alert("Proceeding to shipping step...");
+    // Save form data to sessionStorage for order success page
+    sessionStorage.setItem("orderEmail", formData.email);
+    sessionStorage.setItem("orderFirstName", formData.firstName);
+    sessionStorage.setItem("orderLastName", formData.lastName);
+    sessionStorage.setItem("orderAddress", formData.address);
+    sessionStorage.setItem("orderApartment", formData.apartment);
+    sessionStorage.setItem("orderCity", formData.city);
+    sessionStorage.setItem("orderPostalCode", formData.postalCode);
+
+    // Build URL with query params as backup
+    const params = new URLSearchParams({
+      email: formData.email,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      address: formData.address,
+      apartment: formData.apartment,
+      city: formData.city,
+      postalCode: formData.postalCode,
+    });
+
+    // Navigate to order success page
+    navigate(`/order-success?${params.toString()}`);
   };
 
   return (
@@ -102,9 +141,12 @@ const CheckoutPage = () => {
                   </label>
                   <input
                     className="inputForm"
+                    name="email"
                     placeholder="email@example.com"
                     type="email"
                     required
+                    value={formData.email}
+                    onChange={handleInputChange}
                   />
                   <div className="mt-2 flex items-center gap-2">
                     <input
@@ -133,9 +175,12 @@ const CheckoutPage = () => {
                   </label>
                   <input
                     className="inputForm"
+                    name="firstName"
                     placeholder="John"
                     type="text"
                     required
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="sm:col-span-1">
@@ -144,9 +189,12 @@ const CheckoutPage = () => {
                   </label>
                   <input
                     className="inputForm"
+                    name="lastName"
                     placeholder="Doe"
                     type="text"
                     required
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="col-span-full">
@@ -155,9 +203,12 @@ const CheckoutPage = () => {
                   </label>
                   <input
                     className="inputForm"
+                    name="address"
                     placeholder="Street name and number"
                     type="text"
                     required
+                    value={formData.address}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="col-span-full">
@@ -166,8 +217,11 @@ const CheckoutPage = () => {
                   </label>
                   <input
                     className="inputForm"
+                    name="apartment"
                     placeholder="Apt 4B"
                     type="text"
+                    value={formData.apartment}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="sm:col-span-1">
@@ -176,9 +230,12 @@ const CheckoutPage = () => {
                   </label>
                   <input
                     className="inputForm"
+                    name="city"
                     placeholder="New York"
                     type="text"
                     required
+                    value={formData.city}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="sm:col-span-1">
@@ -187,9 +244,12 @@ const CheckoutPage = () => {
                   </label>
                   <input
                     className="inputForm"
+                    name="postalCode"
                     placeholder="10001"
                     type="text"
                     required
+                    value={formData.postalCode}
+                    onChange={handleInputChange}
                   />
                 </div>
               </div>
@@ -243,13 +303,13 @@ const CheckoutPage = () => {
             <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
               {cartItems.map((item) => (
                 <div key={item.id} className="flex items-center gap-3 sm:gap-4">
-                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-lg bg-background-light dark:bg-background-dark overflow-hidden border border-[#dce5e5] dark:border-white/10">
+                  <div className=" w-14 h-14 sm:w-16 sm:h-16 rounded:bg-[#35211d] overflow-hidden flex-shrink-0 relative bg-background-light">
                     <div
-                      className="w-full h-full bg-center bg-cover"
+                      className="w-full h-full bg-center bg-cover rounded-lg"
                       data-alt={item.name}
                       style={{ backgroundImage: `url("${item.image}")` }}
                     />
-                    <span className="absolute -top-2 -right-2 w-5 h-5 bg-[#111818] text-white text-[10px] flex items-center justify-center rounded-full">
+                    <span className="absolute -top-1 -right-1 w-5 h-5 bg-[#111818] text-white text-[10px] flex items-center justify-center rounded-full z-10">
                       {item.quantity}
                     </span>
                   </div>
