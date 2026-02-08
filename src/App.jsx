@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import HomePage from "./pages/HomePage";
 import AllProducts from "./pages/AllProducts";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -10,10 +12,23 @@ import CheckoutPage from "./pages/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import WhatsAppBtn from "./components/WhatsAppBtn";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // smooth timing
+      easing: "ease-in-out",
+      once: true, // animate only once
+      offset: 120, // slight scroll before trigger
+      mirror: false,
+      throttleDelay: 99, //  throttle to reduce reflow frequency
+    });
+    AOS.refresh();
+  }, []);
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />

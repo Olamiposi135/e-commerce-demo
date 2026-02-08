@@ -31,7 +31,12 @@ const Hero = () => {
               a cellular level.
             </p>
           </div>
-          <div className="flex flex-wrap gap-4">
+          <div
+            className="flex flex-wrap gap-4"
+            data-aos="fade-up"
+            data-aos-duration="600"
+            data-aos-once="true"
+          >
             <Link to="/products" className="w-full sm:w-auto">
               <button className="bg-primary hover:brightness-105 text-charcoal font-bold py-4 px-10 rounded-lg transition-all shadow-lg shadow-primary/20 flex items-center gap-2">
                 Shop the Collection

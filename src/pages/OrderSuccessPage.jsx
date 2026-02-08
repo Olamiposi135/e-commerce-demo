@@ -2,6 +2,15 @@ import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
 import { clearCart } from "../features/cart/cartSlice";
+import { MdOutlineInventory2 } from "react-icons/md";
+import { MdOutlineAutoFixHigh } from "react-icons/md";
+import { MdOutlineLocalShipping } from "react-icons/md";
+import { FaRegCheckCircle } from "react-icons/fa";
+import { IoSync } from "react-icons/io5";
+import { IoIosInformationCircleOutline } from "react-icons/io";
+import { MdOutlineEmail } from "react-icons/md";
+import { MdOutlineSupportAgent } from "react-icons/md";
+import { MdOutlineLocalPrintshop } from "react-icons/md";
 
 const OrderSuccessPage = () => {
   const dispatch = useDispatch();
@@ -112,12 +121,10 @@ const OrderSuccessPage = () => {
 
   if (isLoading) {
     return (
-      <main className="max-w-[960px] mx-auto px-4 sm:px-6 py-12 lg:py-20">
+      <main className="max-w-240 mx-auto px-4 sm:px-6 py-12 lg:py-20">
         <div className="text-center">
           <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-primary/10 mb-4">
-            <span className="material-symbols-outlined text-primary text-3xl animate-spin">
-              sync
-            </span>
+            <IoSync className="text-primary text-3xl animate-spin" />
           </div>
           <p className="text-lg text-[#896861]">Loading order details...</p>
         </div>
@@ -126,24 +133,22 @@ const OrderSuccessPage = () => {
   }
 
   return (
-    <main className="max-w-[960px] mx-auto px-4 sm:px-6 py-8 lg:py-12">
+    <main className="max-w-240 mx-auto px-4 sm:px-6 py-8 lg:py-12">
       {/* Success Hero */}
       <div className="text-center mb-10 lg:mb-16">
         <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-green-500/10 mb-4 sm:mb-6">
-          <span className="material-symbols-outlined text-green-500 text-3xl sm:text-4xl">
-            check_circle
-          </span>
+          <FaRegCheckCircle className="text-green-500 text-2xl sm:text-3xl" />
         </div>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-semibold mb-3 sm:mb-4 text-[#181211] dark:text-white">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-semibold mb-3 sm:mb-4 text-[#181211] ">
           Thank you for your order, {orderData.firstName}!
         </h1>
-        <p className="text-base sm:text-lg text-[#896861] dark:text-[#c4a9a4] mb-2">
+        <p className="text-base sm:text-lg text-[#896861]  mb-2">
           Order{" "}
           <span className="text-primary font-bold">
             #{orderData.orderNumber}
           </span>
         </p>
-        <p className="text-sm sm:text-base text-[#896861] dark:text-[#c4a9a4]">
+        <p className="text-sm sm:text-base text-[#896861] ">
           A confirmation email has been sent to{" "}
           <span className="font-medium text-blue-500 hover:underline">
             {orderData.email}
@@ -155,7 +160,7 @@ const OrderSuccessPage = () => {
         {/* Left Column: Order Details */}
         <div className="lg:col-span-7 space-y-8 lg:space-y-10">
           {/* Tracking Status */}
-          <section className="bg-white dark:bg-[#2d1b18] p-5 sm:p-6 lg:p-8 rounded-xl border border-[#e6dddb] dark:border-[#3d2a27] shadow-sm">
+          <section className="bg-white  p-5 sm:p-6 lg:p-8 rounded-xl border border-[#e6dddb]  shadow-sm">
             <h3 className="text-lg sm:text-xl font-display font-bold mb-6 lg:mb-8">
               Your glow is on the way
             </h3>
@@ -163,9 +168,7 @@ const OrderSuccessPage = () => {
               <div className="flex items-center justify-between relative z-10">
                 <div className="flex flex-col items-center">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary flex items-center justify-center text-white mb-2">
-                    <span className="material-symbols-outlined text-xs sm:text-sm">
-                      inventory_2
-                    </span>
+                    <MdOutlineInventory2 className="text-lg sm:text-xl" />
                   </div>
                   <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
                     Placed
@@ -173,9 +176,7 @@ const OrderSuccessPage = () => {
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-2">
-                    <span className="material-symbols-outlined text-xs sm:text-sm">
-                      auto_fix_high
-                    </span>
+                    <MdOutlineAutoFixHigh className="text-lg sm:text-xl" />
                   </div>
                   <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#896861]">
                     Preparing
@@ -183,28 +184,25 @@ const OrderSuccessPage = () => {
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/10 flex items-center justify-center text-[#896861] mb-2">
-                    <span className="material-symbols-outlined text-xs sm:text-sm">
-                      local_shipping
-                    </span>
+                    <MdOutlineLocalShipping className="text-lg sm:text-xl" />
                   </div>
                   <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#896861]">
                     Shipped
                   </span>
                 </div>
               </div>
-              <div className="absolute top-4 sm:top-5 left-0 w-full h-0.5 bg-primary/10 -z-0">
+              <div className="absolute top-4 sm:top-5 left-0 w-full h-0.5 bg-primary/10 z-0">
                 <div className="h-full bg-primary w-[25%] transition-all duration-1000"></div>
               </div>
             </div>
-            <div className="bg-[#fcfaf9] dark:bg-[#35211d] p-3 sm:p-4 rounded-lg flex items-start gap-3">
-              <span className="material-symbols-outlined text-primary flex-shrink-0">
-                info
-              </span>
+            <div className="bg-[#fcfaf9]  p-3 sm:p-4 rounded-lg flex items-start gap-3">
+              <IoIosInformationCircleOutline className="text-primary shrink-0" />
+
               <div>
                 <p className="text-xs sm:text-sm font-medium">
                   Estimated Delivery
                 </p>
-                <p className="text-xs sm:text-sm text-[#896861] dark:text-[#c4a9a4]">
+                <p className="text-xs sm:text-sm text-[#896861] ">
                   Wednesday, October 25th - Friday, October 27th
                 </p>
               </div>
@@ -217,29 +215,30 @@ const OrderSuccessPage = () => {
               What's Next?
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              <div className="flex gap-3 sm:gap-4 p-4 border border-[#e6dddb] dark:border-[#3d2a27] rounded-lg">
-                <span className="material-symbols-outlined text-primary flex-shrink-0">
-                  mail
-                </span>
+              <div className="flex gap-3 sm:gap-4 p-4 border border-[#e6dddb]  rounded-lg">
+                <MdOutlineEmail size={20} className="text-primary shrink-0" />
+
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold mb-1">
                     Stay updated
                   </h4>
-                  <p className="text-[10px] sm:text-xs text-[#896861] dark:text-[#c4a9a4]">
+                  <p className="text-[10px] sm:text-xs text-[#896861] ">
                     We'll email you a tracking link as soon as your package
                     ships.
                   </p>
                 </div>
               </div>
-              <div className="flex gap-3 sm:gap-4 p-4 border border-[#e6dddb] dark:border-[#3d2a27] rounded-lg">
-                <span className="material-symbols-outlined text-primary flex-shrink-0">
-                  support_agent
-                </span>
+              <div className="flex gap-3 sm:gap-4 p-4 border border-[#e6dddb]  rounded-lg">
+                <MdOutlineSupportAgent
+                  size={20}
+                  className="text-primary shrink-0"
+                />
+
                 <div>
                   <h4 className="text-xs sm:text-sm font-bold mb-1">
                     Skin Concierge
                   </h4>
-                  <p className="text-[10px] sm:text-xs text-[#896861] dark:text-[#c4a9a4]">
+                  <p className="text-[10px] sm:text-xs text-[#896861] ">
                     Have questions about your routine? Our experts are here to
                     help.
                   </p>
@@ -251,15 +250,14 @@ const OrderSuccessPage = () => {
 
         {/* Right Column: Summary */}
         <div className="lg:col-span-5">
-          <div className="bg-white dark:bg-[#2d1b18] rounded-xl border border-[#e6dddb] dark:border-[#3d2a27] shadow-sm lg:sticky lg:top-28 overflow-hidden">
-            <div className="p-4 sm:p-6 border-b border-[#e6dddb] dark:border-[#3d2a27] flex justify-between items-center">
+          <div className="bg-white  rounded-xl border border-[#e6dddb]  shadow-sm lg:sticky lg:top-28 overflow-hidden">
+            <div className="p-4 sm:p-6 border-b border-[#e6dddb]  flex justify-between items-center">
               <h3 className="font-display font-bold text-base sm:text-lg">
                 Order Summary
               </h3>
               <button className="flex items-center gap-1 text-[10px] sm:text-xs font-bold text-[#896861] hover:text-primary uppercase tracking-tighter">
-                <span className="material-symbols-outlined text-xs sm:text-sm">
-                  print
-                </span>
+                <MdOutlineLocalPrintshop size={20} />
+
                 <span className="hidden sm:inline">Print Receipt</span>
                 <span className="sm:hidden">Print</span>
               </button>
@@ -283,7 +281,7 @@ const OrderSuccessPage = () => {
                       <h4 className="text-xs sm:text-sm font-bold leading-tight mb-1 line-clamp-2">
                         {item.name}
                       </h4>
-                      <p className="text-[10px] sm:text-xs text-[#896861] dark:text-[#c4a9a4]">
+                      <p className="text-[10px] sm:text-xs text-[#896861] ">
                         ${item.price.toFixed(2)}
                       </p>
                     </div>
@@ -298,11 +296,9 @@ const OrderSuccessPage = () => {
                 </p>
               )}
 
-              <div className="pt-4 sm:pt-6 border-t border-[#e6dddb] dark:border-[#3d2a27] space-y-2 sm:space-y-3">
+              <div className="pt-4 sm:pt-6 border-t border-[#e6dddb]  space-y-2 sm:space-y-3">
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#896861] dark:text-[#c4a9a4]">
-                    Subtotal
-                  </span>
+                  <span className="text-[#896861] ">Subtotal</span>
                   <span className="font-medium">
                     ${orderData.subtotal.toFixed(2)}
                   </span>
@@ -312,9 +308,7 @@ const OrderSuccessPage = () => {
                   <span>Free</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#896861] dark:text-[#c4a9a4]">
-                    Taxes
-                  </span>
+                  <span className="text-[#896861] ">Taxes</span>
                   <span className="font-medium">
                     ${orderData.taxes.toFixed(2)}
                   </span>
@@ -329,11 +323,11 @@ const OrderSuccessPage = () => {
                 </div>
               </div>
             </div>
-            <div className="p-4 sm:p-6 bg-[#fcfaf9] dark:bg-[#35211d] border-t border-[#e6dddb] dark:border-[#3d2a27]">
-              <p className="text-[10px] sm:text-xs font-bold text-[#896861] dark:text-[#c4a9a4] uppercase mb-2">
+            <div className="p-4 sm:p-6 bg-[#fcfaf9]  border-t border-[#e6dddb] ">
+              <p className="text-[10px] sm:text-xs font-bold text-[#896861]  uppercase mb-2">
                 Shipping Address
               </p>
-              <p className="text-xs sm:text-sm text-[#181211] dark:text-white leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#181211]  leading-relaxed">
                 {orderData.firstName} {orderData.lastName}
                 {orderData.address && (
                   <>
@@ -354,7 +348,7 @@ const OrderSuccessPage = () => {
       </div>
 
       {/* Footer Actions */}
-      <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-12 border-t border-[#e6dddb] dark:border-[#3d2a27] text-center">
+      <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-12 border-t border-[#e6dddb]  text-center">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <Link
             to="/products"

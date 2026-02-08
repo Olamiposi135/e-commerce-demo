@@ -38,7 +38,12 @@ const FeaturedEssentials = () => {
 
   return (
     <section className="py-16">
-      <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-12 px-4">
+      <h2
+        className="text-2xl md:text-3xl font-bold tracking-tight mb-12 px-4"
+        data-aos="fade-up"
+        data-aos-duration="600"
+        data-aos-once="true"
+      >
         Featured Essentials
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

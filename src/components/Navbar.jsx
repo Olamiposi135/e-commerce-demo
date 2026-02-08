@@ -15,7 +15,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-border-light dark:border-gray-800">
+    <header className="sticky top-0 z-50 w-full bg-background-light/80  backdrop-blur-md border-b border-border-light ">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
         <div className="flex items-center gap-12">
           <Link to="/">
@@ -66,7 +66,7 @@ const Navbar = () => {
           </nav>
         </div>
         <div className="flex items-center gap-6">
-          <div className="hidden lg:flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg px-3 py-1.5 border border-transparent focus-within:border-primary transition-all">
+          <div className="hidden lg:flex items-center bg-gray-100  rounded-lg px-3 py-1.5 border border-transparent focus-within:border-primary transition-all">
             <GoSearch className="text-gray-500" />
             <input
               className="bg-transparent border-none focus:outline-none focus:ring-0 text-sm w-48 p-1 placeholder:text-gray-400"

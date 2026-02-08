@@ -10,13 +10,18 @@ const ProductGrid = () => {
 
   return (
     <section className="py-16 border-t border-gray-100">
-      <div className="flex items-center justify-between mb-12 px-4 gap-2">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-charcoal">
+      <div className="flex items-baseline sm:item-center justify-between mb-12 px-4 gap-4">
+        <h2
+          className="text-xl md:text-3xl font-bold tracking-tight text-charcoal"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-once="true"
+        >
           All Products
         </h2>
-        <div className="flex items-center gap-4 text-sm font-medium">
+        <div className="max-w-30 flex flex-col md:flex-row items-start gap-2 text-sm font-medium">
           <span className="text-gray-500">Sort by:</span>
-          <select className="bg-transparent border-none focus:ring-0 cursor-pointer font-bold text-charcoal">
+          <select className="w-fit p-1 bg-transparent border border-transparent focus-within:border-primary focus:outline-none cursor-pointer font-bold text-charcoal">
             <option className="text-charcoal">Newest</option>
             <option className="text-charcoal">Price: Low to High</option>
             <option className="text-charcoal">Price: High to Low</option>

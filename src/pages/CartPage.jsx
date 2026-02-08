@@ -5,9 +5,16 @@ import {
   removeFromCart,
   updateQuantity,
   addToCart,
+  clearCart,
 } from "../features/cart/cartSlice";
 import { RiDeleteBinLine } from "react-icons/ri";
 import products from "../data/productContent.js";
+import { GoArrowRight } from "react-icons/go";
+import { GrShop } from "react-icons/gr";
+import { MdOutlineVerifiedUser } from "react-icons/md";
+import { MdOutlineLocalShipping } from "react-icons/md";
+import { MdOutlineReplay } from "react-icons/md";
+import { MdLockOutline } from "react-icons/md";
 
 // Get recommended products (products 9-12) from productContent
 const getRecommendedProducts = () => {
@@ -57,6 +64,13 @@ const CartPage = () => {
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
 
+  //clear cart function
+  const handleClearCart = () => {
+    if (!window.confirm("Are you sure you want to clear the cart?")) return;
+
+    dispatch(clearCart());
+  };
+
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0,
@@ -67,10 +81,11 @@ const CartPage = () => {
   if (cartItems.length === 0) {
     return (
       <main className="max-w-360 mx-auto px-4 sm:px-6 py-6 sm:py-8">
-        <div className="text-center py-12 sm:py-20">
-          <span className="material-symbols-outlined text-5xl sm:text-6xl text-gray-300 mb-4">
-            shopping_bag
-          </span>
+        <div className="flex flex-col space-y-4 justify-center items-center  py-12 sm:py-20">
+          <div>
+            <GrShop className=" text-5xl sm:text-6xl text-gray-300 mb-4" />
+          </div>
+
           <h2 className="text-xl sm:text-2xl font-bold text-text-main mb-3 sm:mb-4">
             Your Cart is Empty
           </h2>
@@ -81,10 +96,7 @@ const CartPage = () => {
             to="/products"
             className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-primary text-text-main font-bold rounded-lg hover:brightness-105 transition-all text-sm sm:text-base"
           >
-            Continue Shopping
-            <span className="material-symbols-outlined text-sm sm:text-base">
-              arrow_forward
-            </span>
+            Continue Shopping <GoArrowRight className="text-lg" />
           </Link>
         </div>
 
@@ -114,10 +126,7 @@ const CartPage = () => {
           to="/products"
           className="text-primary font-bold hover:underline flex items-center gap-1 text-sm sm:text-base"
         >
-          Continue Shopping
-          <span className="material-symbols-outlined text-sm sm:text-base">
-            arrow_forward
-          </span>
+          Continue Shopping <GoArrowRight className="text-lg" />
         </Link>
       </div>
 
@@ -241,6 +250,14 @@ const CartPage = () => {
                 ))}
               </tbody>
             </table>
+            <div className="mt-4 flex justify-end">
+              <button
+                onClick={handleClearCart}
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+              >
+                Clear Cart
+              </button>
+            </div>
           </div>
           {/* Recommended Section */}{" "}
           <div className="mt-8 sm:mt-12">
@@ -256,11 +273,7 @@ const CartPage = () => {
                 className="text-primary font-bold hover:underline flex items-center gap-1 text-sm sm:text-base"
               >
                 {" "}
-                View All{" "}
-                <span className="material-symbols-outlined text-sm sm:text-base">
-                  {" "}
-                  arrow_forward{" "}
-                </span>{" "}
+                View All <GoArrowRight className="text-sm sm:text-base" />
               </Link>{" "}
             </div>{" "}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
@@ -273,7 +286,7 @@ const CartPage = () => {
         </div>
 
         {/* Order Summary */}
-        <div className="xl:w-[360px] 2xl:w-[400px] order-1 xl:order-2 flex-shrink-0">
+        <div className="xl:w-90 2xl:w-100 order-1 xl:order-2 shrink-0">
           <div className="bg-white border border-[#f0f4f4] rounded-xl p-4 sm:p-6 sticky top-4 xl:top-24">
             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-text-main mb-4 sm:mb-6">
               Order Summary
@@ -304,17 +317,14 @@ const CartPage = () => {
               onClick={() => navigate("/checkout")}
               className="w-full bg-primary text-text-main font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg hover:brightness-105 transition-all flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
             >
-              <span className="material-symbols-outlined text-sm sm:text-base">
-                lock
-              </span>
+              <MdLockOutline className="text-lg" />
               Proceed to Checkout
             </button>
             {/* <!-- Trust Badges --> */}
-            <div className="mt-8 pt-6 border-t border-border-light dark:border-border-dark space-y-4">
+            <div className="mt-8 pt-6 border-t border-border-light  space-y-4">
               <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-primary">
-                  verified_user
-                </span>
+                <MdOutlineVerifiedUser size={20} className="text-primary" />
+
                 <div>
                   <p class="text-sm font-bold">Secure Checkout</p>
                   <p class="text-xs text-[#638888]">
@@ -323,18 +333,16 @@ const CartPage = () => {
                 </div>
               </div>
               <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary">
-                  local_shipping
-                </span>
+                <MdOutlineLocalShipping size={20} className="text-primary" />
+
                 <div>
                   <p class="text-sm font-bold">Free Shipping</p>
                   <p class="text-xs text-[#638888]">On all orders over $50</p>
                 </div>
               </div>
               <div class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-primary">
-                  replay
-                </span>
+                <MdOutlineReplay size={20} className="text-primary" />
+
                 <div>
                   <p class="text-sm font-bold">30-Day Returns</p>
                   <p class="text-xs text-[#638888]">

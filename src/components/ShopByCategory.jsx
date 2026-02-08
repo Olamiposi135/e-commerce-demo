@@ -61,7 +61,12 @@ const ShopByCategory = () => {
           View All
         </Link>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+        data-aos-duration="800"
+        data-aos-once="true"
+        data-aos="fade-up"
+      >
         {categories.map((category, index) => (
           <CategoryCard key={index} {...category} />
         ))}
